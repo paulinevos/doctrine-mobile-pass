@@ -1,8 +1,8 @@
 <?php
 
 use PKPass\PKPassException;
-use Spatie\LaravelMobilePass\Builders\Apple\GenericPassBuilder;
-use Spatie\LaravelMobilePass\Exceptions\InvalidCertificate;
+use Vos\DoctrineMobilePass\Builders\Apple\GenericPassBuilder;
+use Vos\DoctrineMobilePass\Exceptions\InvalidCertificate;
 
 it('throws InvalidCertificate when the P12 password is wrong', function () {
     config()->set('mobile-pass.apple.certificate_password', 'wrong-password');

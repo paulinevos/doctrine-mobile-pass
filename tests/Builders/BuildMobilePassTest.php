@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\Feature;
+namespace Vos\DoctrineMobilePass\Tests\Feature;
 
 use Illuminate\Validation\ValidationException;
-use Spatie\LaravelMobilePass\Builders\Apple\GenericPassBuilder;
-use Spatie\LaravelMobilePass\Exceptions\InvalidPass;
+use Vos\DoctrineMobilePass\Builders\Apple\GenericPassBuilder;
+use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 it('can create a mobile pass', function () {
     $pass = GenericPassBuilder::make()

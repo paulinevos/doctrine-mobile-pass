@@ -10,7 +10,7 @@ Everything on this page is Apple-only. Google Wallet passes aren't files; they l
 If you do want to keep a copy of the `.pkpass` file for an Apple pass, call `generate` on the `MobilePass` model:
 
 ```php
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 $mobilePassContent = $mobilePass->generate();
 

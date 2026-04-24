@@ -53,13 +53,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\LaravelMobilePass\\": "src/",
-            "Spatie\\LaravelMobilePass\\Database\\Factories\\": "database/factories/"
+            "Vos\\DoctrineMobilePass\\": "src/",
+            "Vos\\DoctrineMobilePass\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\LaravelMobilePass\\Tests\\": "tests/",
+            "Vos\\DoctrineMobilePass\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },

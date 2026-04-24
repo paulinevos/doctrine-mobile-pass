@@ -1,19 +1,19 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google;
+namespace Vos\DoctrineMobilePass\Builders\Google;
 
 use Illuminate\Support\Str;
 use RuntimeException;
-use Spatie\LaravelMobilePass\Actions\Google\CreateGoogleObjectAction;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Barcode;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GooglePassObjectValidator;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
-use Spatie\LaravelMobilePass\Enums\PassType;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\Config;
-use Spatie\LaravelMobilePass\Support\Google\GoogleCredentials;
-use Spatie\LaravelMobilePass\Support\WifiUri;
+use Vos\DoctrineMobilePass\Actions\Google\CreateGoogleObjectAction;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Barcode;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassObjectValidator;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Support\Google\GoogleCredentials;
+use Vos\DoctrineMobilePass\Support\WifiUri;
 
 /**
  * @phpstan-consistent-constructor

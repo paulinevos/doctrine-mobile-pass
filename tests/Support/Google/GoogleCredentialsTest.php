@@ -1,8 +1,8 @@
 <?php
 
-use Spatie\LaravelMobilePass\Exceptions\InvalidConfig;
-use Spatie\LaravelMobilePass\Support\Google\GoogleCredentials;
-use Spatie\LaravelMobilePass\Tests\TestSupport\Google\GoogleFixtures;
+use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
+use Vos\DoctrineMobilePass\Support\Google\GoogleCredentials;
+use Vos\DoctrineMobilePass\Tests\TestSupport\Google\GoogleFixtures;
 
 beforeEach(function () {
     config()->set('mobile-pass.google', [

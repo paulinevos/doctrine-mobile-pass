@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Database\Factories;
+namespace Vos\DoctrineMobilePass\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Image;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Image;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class MobilePassFactory extends Factory
 {

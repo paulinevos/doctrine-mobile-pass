@@ -1,26 +1,26 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Support;
+namespace Vos\DoctrineMobilePass\Support;
 
-use Spatie\LaravelMobilePass\Builders\Apple\AirlinePassBuilder;
-use Spatie\LaravelMobilePass\Builders\Apple\ApplePassBuilder;
-use Spatie\LaravelMobilePass\Builders\Apple\BoardingPassBuilder as AppleBoardingPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Apple\CouponPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Apple\EventTicketPassBuilder as AppleEventTicketPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Apple\GenericPassBuilder as AppleGenericPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Apple\StoreCardPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\BoardingPassBuilder as GoogleBoardingPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassBuilder as GoogleEventTicketPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\GenericPassBuilder as GoogleGenericPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\GooglePassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\LoyaltyPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\OfferPassBuilder;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Exceptions\InvalidConfig;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Builders\Apple\AirlinePassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\ApplePassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\BoardingPassBuilder as AppleBoardingPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\CouponPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder as AppleEventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\GenericPassBuilder as AppleGenericPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\StoreCardPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\BoardingPassBuilder as GoogleBoardingPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassBuilder as GoogleEventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\GenericPassBuilder as GoogleGenericPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\GooglePassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\LoyaltyPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\OfferPassBuilder;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class Config
 {

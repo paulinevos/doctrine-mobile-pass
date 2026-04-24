@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Controllers\Apple;
+namespace Vos\DoctrineMobilePass\Http\Controllers\Apple;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\Apple\DownloadableMobilePass;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\Apple\DownloadableMobilePass;
+use Vos\DoctrineMobilePass\Support\Config;
 
 class DownloadApplePassController extends Controller
 {

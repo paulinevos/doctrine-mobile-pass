@@ -28,7 +28,7 @@ The URL works behind any anchor or form. This sits nicely on a post-checkout con
 The `MobilePass` model implements `Responsable`, so the simplest way to deliver a pass is to return the model itself from a controller. Laravel takes it from there, serving the signed `.pkpass` for Apple passes and redirecting to the Google Wallet save URL for Google passes. One controller, both platforms.
 
 ```php
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class AddToWalletController
 {
@@ -63,7 +63,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class TicketPurchased extends Mailable
 {
@@ -100,7 +100,7 @@ By default the Apple link is a `signedRoute`, not a `temporarySignedRoute`, so i
 namespace App\Models;
 
 use Illuminate\Support\Facades\URL;
-use Spatie\LaravelMobilePass\Models\MobilePass as BaseMobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass as BaseMobilePass;
 
 class MobilePass extends BaseMobilePass
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Models\Concerns;
+namespace Vos\DoctrineMobilePass\Models\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Spatie\LaravelMobilePass\Enums\PassType;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\Config;
 
 /** @mixin Model */
 trait HasMobilePasses

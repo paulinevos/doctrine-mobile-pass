@@ -75,11 +75,11 @@ return [
      * by creating your own action class that extend the one that ships with the package.
      */
     'actions' => [
-        'handle_google_callback' => Spatie\LaravelMobilePass\Actions\Google\HandleGoogleCallbackAction::class,
-        'notify_apple_of_pass_update' => Spatie\LaravelMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction::class,
-        'notify_google_of_pass_update' => Spatie\LaravelMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction::class,
-        'register_device' => Spatie\LaravelMobilePass\Actions\Apple\RegisterDeviceAction::class,
-        'unregister_device' => Spatie\LaravelMobilePass\Actions\Apple\UnregisterDeviceAction::class,
+        'handle_google_callback' => Vos\DoctrineMobilePass\Actions\Google\HandleGoogleCallbackAction::class,
+        'notify_apple_of_pass_update' => Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction::class,
+        'notify_google_of_pass_update' => Vos\DoctrineMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction::class,
+        'register_device' => Vos\DoctrineMobilePass\Actions\Apple\RegisterDeviceAction::class,
+        'unregister_device' => Vos\DoctrineMobilePass\Actions\Apple\UnregisterDeviceAction::class,
     ],
 
     /*
@@ -87,10 +87,10 @@ return [
      * your own models by extending the ones that ship with the package.
      */
     'models' => [
-        'mobile_pass' => Spatie\LaravelMobilePass\Models\MobilePass::class,
-        'apple_mobile_pass_registration' => Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration::class,
-        'apple_mobile_pass_device' => Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice::class,
-        'google_mobile_pass_event' => Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent::class,
+        'mobile_pass' => Vos\DoctrineMobilePass\Models\MobilePass::class,
+        'apple_mobile_pass_registration' => Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration::class,
+        'apple_mobile_pass_device' => Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice::class,
+        'google_mobile_pass_event' => Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent::class,
     ],
 
     /*

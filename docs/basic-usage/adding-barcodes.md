@@ -12,8 +12,8 @@ The four cases on `BarcodeType` are `Qr`, `Pdf417`, `Aztec`, and `Code128`. Pick
 Every Apple builder accepts a barcode through `setBarcode()`. Pass the format and the encoded value:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\EventTicketPassBuilder;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
 
 EventTicketPassBuilder::make()
     ->setOrganizationName('Fab Four Promotions')
@@ -40,8 +40,8 @@ Under the hood the builder writes the barcode into both `barcode` (for older iOS
 Every Google builder accepts the same call shape:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassBuilder;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
 
 EventTicketPassBuilder::make()
     ->setClass('beatles-shea-1965')

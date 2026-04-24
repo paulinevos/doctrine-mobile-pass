@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Middleware;
+namespace Vos\DoctrineMobilePass\Http\Middleware;
 
 use Closure;
 use Illuminate\Auth\AuthenticationException;

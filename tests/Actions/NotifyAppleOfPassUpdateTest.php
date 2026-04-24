@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
-use Spatie\LaravelMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Exceptions\AppleWalletRequestFailed;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Exceptions\AppleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 beforeEach(function () {
     config(['mobile-pass.apple.apple_push_base_url' => 'https://example.com']);

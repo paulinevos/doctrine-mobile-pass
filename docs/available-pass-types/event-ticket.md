@@ -8,7 +8,7 @@ Event tickets cover concerts, festivals, sports events, conferences, and anythin
 ## Apple
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
 
 EventTicketPassBuilder::make()
     ->setOrganizationName('Fab Four Promotions')
@@ -25,9 +25,9 @@ EventTicketPassBuilder::make()
 Declare the Class once per event (the venue, the show, the shared visuals), then create an Object per ticket.
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassClass;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassClass;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
 
 // Once, per event
 EventTicketPassClass::make('beatles-shea-1965')

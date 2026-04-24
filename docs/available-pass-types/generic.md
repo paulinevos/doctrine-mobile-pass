@@ -8,7 +8,7 @@ When none of the other pass types fit, generic is your escape hatch. It's useful
 ## Apple
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\GenericPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\GenericPassBuilder;
 
 GenericPassBuilder::make()
     ->setOrganizationName('Spatie Conference')
@@ -24,8 +24,8 @@ GenericPassBuilder::make()
 Declare the Class once per use case (the brand, the visuals, the card title), then create an Object per person.
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\GenericPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\GenericPassClass;
+use Vos\DoctrineMobilePass\Builders\Google\GenericPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\GenericPassClass;
 
 // Once, per use case
 GenericPassClass::make('spatie-conference-badge')

@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Exceptions;
+namespace Vos\DoctrineMobilePass\Exceptions;
 
 use Exception;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class CannotDownload extends Exception implements MobilePassException
 {

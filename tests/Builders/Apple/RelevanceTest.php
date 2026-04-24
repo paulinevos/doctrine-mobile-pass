@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Carbon;
-use Spatie\LaravelMobilePass\Builders\Apple\EventTicketPassBuilder;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 it('serialises a relevant date onto the pass', function () {
     $data = EventTicketPassBuilder::make()

@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google;
+namespace Vos\DoctrineMobilePass\Builders\Google;
 
-use Spatie\LaravelMobilePass\Builders\Google\Entities\LocalizedString;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GenericObjectValidator;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GooglePassObjectValidator;
-use Spatie\LaravelMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\LocalizedString;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GenericObjectValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassObjectValidator;
+use Vos\DoctrineMobilePass\Enums\PassType;
 
 class GenericPassBuilder extends GooglePassBuilder
 {

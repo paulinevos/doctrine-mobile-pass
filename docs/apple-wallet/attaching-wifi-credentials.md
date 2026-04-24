@@ -13,7 +13,7 @@ There are two ways to ship Wi-Fi credentials on an Apple Wallet pass, and they b
 Apple's `wifiAccess` semantic tag drives a dedicated "Join Wi-Fi network" button inside Wallet. Call `addWifiNetwork()` with the SSID and password:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
 
 EventTicketPassBuilder::make()
     ->setOrganizationName('Fab Four Promotions')
@@ -63,7 +63,7 @@ Pass types that actually render the button: boarding passes (iOS 12+), event tic
 Call `setWifiBarcode()` with the SSID and password. The builder encodes the credentials as a QR code on the pass, in the standard Wi-Fi URI format that iOS's camera app and Android's camera understand.
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\GenericPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\GenericPassBuilder;
 
 GenericPassBuilder::make()
     ->setOrganizationName('Spatie')

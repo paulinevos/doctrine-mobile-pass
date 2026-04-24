@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\Http;
+namespace Vos\DoctrineMobilePass\Tests\Http;
 
 use Illuminate\Support\Facades\Event;
-use Spatie\LaravelMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Events\MobilePassAdded;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Events\MobilePassAdded;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 it('stores the registration', function () {
     $pass = MobilePass::factory()->create();

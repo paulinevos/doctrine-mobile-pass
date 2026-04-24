@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
 
 class Barcode implements Arrayable
 {

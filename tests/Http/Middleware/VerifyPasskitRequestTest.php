@@ -2,7 +2,7 @@
 
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
-use Spatie\LaravelMobilePass\Http\Middleware\VerifyApplePasskitRequest;
+use Vos\DoctrineMobilePass\Http\Middleware\VerifyApplePasskitRequest;
 
 it('handles the request when a valid auth token is provided', function () {
     config(['mobile-pass.apple.webservice.secret' => 'pass12345']);

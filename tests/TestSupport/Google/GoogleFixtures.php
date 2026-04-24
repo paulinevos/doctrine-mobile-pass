@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\TestSupport\Google;
+namespace Vos\DoctrineMobilePass\Tests\TestSupport\Google;
 
 class GoogleFixtures
 {

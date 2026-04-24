@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Actions\Google;
+namespace Vos\DoctrineMobilePass\Actions\Google;
 
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\Google\GoogleWalletClient;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\Google\GoogleWalletClient;
 
 class NotifyGoogleOfPassUpdateAction
 {

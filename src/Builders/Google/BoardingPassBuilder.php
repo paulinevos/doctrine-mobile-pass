@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google;
+namespace Vos\DoctrineMobilePass\Builders\Google;
 
-use Spatie\LaravelMobilePass\Builders\Google\Validators\BoardingObjectValidator;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GooglePassObjectValidator;
-use Spatie\LaravelMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\BoardingObjectValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassObjectValidator;
+use Vos\DoctrineMobilePass\Enums\PassType;
 
 class BoardingPassBuilder extends GooglePassBuilder
 {

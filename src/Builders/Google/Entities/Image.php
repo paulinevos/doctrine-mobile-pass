@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Google\Entities;
 
 use Illuminate\Contracts\Support\Arrayable;
 use RuntimeException;

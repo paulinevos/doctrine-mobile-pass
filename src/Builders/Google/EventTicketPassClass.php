@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google;
+namespace Vos\DoctrineMobilePass\Builders\Google;
 
 use Carbon\Carbon;
-use Spatie\LaravelMobilePass\Builders\Google\Entities\Image;
-use Spatie\LaravelMobilePass\Builders\Google\Entities\LocalizedString;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\EventTicketClassValidator;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GooglePassClassValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\LocalizedString;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\EventTicketClassValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassClassValidator;
 
 class EventTicketPassClass extends GooglePassClass
 {

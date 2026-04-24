@@ -8,7 +8,7 @@ Coupons cover discount codes, limited-time offers, and anything else with "redee
 ## Apple
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\CouponPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\CouponPassBuilder;
 
 CouponPassBuilder::make()
     ->setOrganizationName('Spatie Store')
@@ -24,8 +24,8 @@ CouponPassBuilder::make()
 Declare the Class once per offer (the title, the fine print, the visuals), then create an Object per redeemer.
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\OfferPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\OfferPassClass;
+use Vos\DoctrineMobilePass\Builders\Google\OfferPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\OfferPassClass;
 
 // Once, per offer
 OfferPassClass::make('summer-2026-20off')

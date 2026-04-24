@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Support\Google;
+namespace Vos\DoctrineMobilePass\Support\Google;
 
 use Firebase\JWT\JWT;
 use Illuminate\Support\Facades\Cache;

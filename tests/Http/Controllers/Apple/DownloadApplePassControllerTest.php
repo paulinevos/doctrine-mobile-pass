@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\URL;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 it('serves the pkpass at a signed url', function () {
     $pass = MobilePass::factory()->create();

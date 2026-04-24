@@ -1,9 +1,9 @@
 <?php
 
-use Spatie\LaravelMobilePass\Enums\PassType;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Tests\TestSupport\Models\TestModel;
+use Vos\DoctrineMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Tests\TestSupport\Models\TestModel;
 
 beforeEach(function () {
     /** @var TestModel testModel */

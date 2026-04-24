@@ -1,14 +1,14 @@
 <?php
 
-use Spatie\LaravelMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Actions\Apple\RegisterDeviceAction;
-use Spatie\LaravelMobilePass\Actions\Apple\UnregisterDeviceAction;
-use Spatie\LaravelMobilePass\Actions\Google\HandleGoogleCallbackAction;
-use Spatie\LaravelMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Actions\Apple\RegisterDeviceAction;
+use Vos\DoctrineMobilePass\Actions\Apple\UnregisterDeviceAction;
+use Vos\DoctrineMobilePass\Actions\Google\HandleGoogleCallbackAction;
+use Vos\DoctrineMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 return [
     /*

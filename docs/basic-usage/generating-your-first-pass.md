@@ -17,7 +17,7 @@ Grab credentials for the platform(s) you want to support. Each walkthrough lists
 If you want to link passes to a user (or any other model) so you can look them up later, add the `HasMobilePasses` trait to that model:
 
 ```php
-use Spatie\LaravelMobilePass\Models\Concerns\HasMobilePasses;
+use Vos\DoctrineMobilePass\Models\Concerns\HasMobilePasses;
 
 class User extends Model
 {
@@ -32,7 +32,7 @@ Once you've associated passes with a model, see [Retrieving mobile passes](basic
 Here's an Apple Wallet event ticket:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
 
 $mobilePass = EventTicketPassBuilder::make()
     ->setOrganizationName('Fab Four Promotions')
@@ -66,8 +66,8 @@ Android users live in Google Wallet, and the same package covers that with a mat
 Once the class exists, building a ticket for one attendee looks like this:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassBuilder;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
 
 $mobilePass = EventTicketPassBuilder::make()
     ->setClass('beatles-shea-1965')

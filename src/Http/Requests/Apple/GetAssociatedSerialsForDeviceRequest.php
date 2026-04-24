@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Requests\Apple;
+namespace Vos\DoctrineMobilePass\Http\Requests\Apple;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Carbon;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Support\Config;
 
 class GetAssociatedSerialsForDeviceRequest extends FormRequest
 {

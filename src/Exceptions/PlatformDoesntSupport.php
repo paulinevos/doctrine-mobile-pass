@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Exceptions;
+namespace Vos\DoctrineMobilePass\Exceptions;
 
 use Exception;
-use Spatie\LaravelMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Enums\Platform;
 
 class PlatformDoesntSupport extends Exception implements MobilePassException
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Spatie\LaravelMobilePass\Exceptions\ImageNotFound;
+use Vos\DoctrineMobilePass\Exceptions\ImageNotFound;
 
 class Image
 {

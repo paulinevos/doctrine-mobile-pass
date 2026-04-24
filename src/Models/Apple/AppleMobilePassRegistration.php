@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Models\Apple;
+namespace Vos\DoctrineMobilePass\Models\Apple;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\Config;
 
 /**
  * @property string $pass_type_id

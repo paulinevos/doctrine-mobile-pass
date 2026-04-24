@@ -2,8 +2,8 @@
 
 use Firebase\JWT\JWT;
 use Illuminate\Auth\AuthenticationException;
-use Spatie\LaravelMobilePass\Http\Middleware\VerifyGoogleCallbackRequest;
-use Spatie\LaravelMobilePass\Tests\TestSupport\Google\GoogleFixtures;
+use Vos\DoctrineMobilePass\Http\Middleware\VerifyGoogleCallbackRequest;
+use Vos\DoctrineMobilePass\Tests\TestSupport\Google\GoogleFixtures;
 
 beforeEach(function () {
     config()->set('mobile-pass.google.callback_signing_key', GoogleFixtures::publicKey());

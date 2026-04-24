@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\WifiNetwork;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\WifiNetwork;
 
 it('builds a basic wifi network object', function () {
     $network = WifiNetwork::make(

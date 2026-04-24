@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Support\Google;
+namespace Vos\DoctrineMobilePass\Support\Google;
 
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Spatie\LaravelMobilePass\Exceptions\GoogleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed;
 use Throwable;
 
 class GoogleWalletClient

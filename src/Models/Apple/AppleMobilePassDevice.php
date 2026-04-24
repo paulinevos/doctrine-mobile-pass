@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Models\Apple;
+namespace Vos\DoctrineMobilePass\Models\Apple;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Support\Config;
 
 /**
  * @property string $push_token

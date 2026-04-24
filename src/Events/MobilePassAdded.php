@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Events;
+namespace Vos\DoctrineMobilePass\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class MobilePassAdded
 {

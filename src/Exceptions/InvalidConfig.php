@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Exceptions;
+namespace Vos\DoctrineMobilePass\Exceptions;
 
 use Exception;
-use Spatie\LaravelMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Enums\Platform;
 
 class InvalidConfig extends Exception implements MobilePassException
 {
@@ -30,8 +30,8 @@ class InvalidConfig extends Exception implements MobilePassException
     public static function invalidPassBuilderClass(string $passBuilderName, mixed $passBuilderClass, Platform $platform): self
     {
         $expectedNamespace = match ($platform) {
-            Platform::Apple => 'Spatie\LaravelMobilePass\Builders\Apple',
-            Platform::Google => 'Spatie\LaravelMobilePass\Builders\Google',
+            Platform::Apple => 'Vos\DoctrineMobilePass\Builders\Apple',
+            Platform::Google => 'Vos\DoctrineMobilePass\Builders\Google',
         };
 
         return new self("The pass builder `{$passBuilderName}` must be an instance of `{$expectedNamespace}\PassBuilder`. `{$passBuilderClass}` does not extend `{$expectedNamespace}\PassBuilder`.");

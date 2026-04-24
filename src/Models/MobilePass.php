@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Models;
+namespace Vos\DoctrineMobilePass\Models;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Mail\Attachable;
@@ -14,18 +14,18 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Mail\Attachment;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
-use Spatie\LaravelMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Builders\Apple\ApplePassBuilder;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Exceptions\CannotDownload;
-use Spatie\LaravelMobilePass\Exceptions\PlatformDoesntSupport;
-use Spatie\LaravelMobilePass\Jobs\PushPassUpdateJob;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent;
-use Spatie\LaravelMobilePass\Support\Apple\DownloadableMobilePass;
-use Spatie\LaravelMobilePass\Support\Config;
-use Spatie\LaravelMobilePass\Support\Google\GoogleJwtSigner;
+use Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Builders\Apple\ApplePassBuilder;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Exceptions\CannotDownload;
+use Vos\DoctrineMobilePass\Exceptions\PlatformDoesntSupport;
+use Vos\DoctrineMobilePass\Jobs\PushPassUpdateJob;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
+use Vos\DoctrineMobilePass\Support\Apple\DownloadableMobilePass;
+use Vos\DoctrineMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Support\Google\GoogleJwtSigner;
 use Symfony\Component\HttpFoundation\Response;
 
 /**

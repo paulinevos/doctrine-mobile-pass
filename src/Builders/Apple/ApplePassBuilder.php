@@ -1,31 +1,31 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple;
+namespace Vos\DoctrineMobilePass\Builders\Apple;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PKPass\PKPass;
 use PKPass\PKPassException;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Barcode;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Color;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\FieldContent;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Image;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Location;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\NfcPayload;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Price;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\WifiNetwork;
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\ApplePassValidator;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
-use Spatie\LaravelMobilePass\Enums\DateType;
-use Spatie\LaravelMobilePass\Enums\FieldType;
-use Spatie\LaravelMobilePass\Enums\PassType;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Enums\TimeStyleType;
-use Spatie\LaravelMobilePass\Exceptions\InvalidCertificate;
-use Spatie\LaravelMobilePass\Exceptions\InvalidConfig;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\WifiUri;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Barcode;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Color;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\FieldContent;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Location;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\NfcPayload;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Price;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\WifiNetwork;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\ApplePassValidator;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Enums\DateType;
+use Vos\DoctrineMobilePass\Enums\FieldType;
+use Vos\DoctrineMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Enums\TimeStyleType;
+use Vos\DoctrineMobilePass\Exceptions\InvalidCertificate;
+use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\WifiUri;
 
 /**
  * @phpstan-consistent-constructor

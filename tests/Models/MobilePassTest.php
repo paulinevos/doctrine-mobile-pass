@@ -1,7 +1,7 @@
 <?php
 
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Tests\TestSupport\Mailables\TestMail;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Tests\TestSupport\Mailables\TestMail;
 
 it('can return a downloadable pass', function (?string $customName) {
     Route::get('test', function () use ($customName) {

@@ -1,7 +1,7 @@
 <?php
 
-use Spatie\LaravelMobilePass\Builders\Apple\CouponPassBuilder;
-use Spatie\LaravelMobilePass\Exceptions\InvalidConfig;
+use Vos\DoctrineMobilePass\Builders\Apple\CouponPassBuilder;
+use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
 
 it('omits webServiceURL when webservice.host is not configured', function () {
     config()->set('mobile-pass.apple.webservice.host', null);

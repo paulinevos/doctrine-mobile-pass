@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\Support;
+namespace Vos\DoctrineMobilePass\Tests\Support;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\LaravelMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Builders\Apple\AirlinePassBuilder;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Exceptions\InvalidConfig;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Builders\Apple\AirlinePassBuilder;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
+use Vos\DoctrineMobilePass\Support\Config;
 
 it('will throw an exception if an invalid model is used', function () {
     config()->set('mobile-pass.models.mobile_pass', Model::class);

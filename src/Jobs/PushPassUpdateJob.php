@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Jobs;
+namespace Vos\DoctrineMobilePass\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class PushPassUpdateJob implements ShouldQueue
 {

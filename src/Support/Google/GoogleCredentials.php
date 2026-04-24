@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Support\Google;
+namespace Vos\DoctrineMobilePass\Support\Google;
 
-use Spatie\LaravelMobilePass\Exceptions\InvalidConfig;
+use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
 
 class GoogleCredentials
 {

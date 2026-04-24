@@ -3,8 +3,8 @@
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Illuminate\Support\Facades\Http;
-use Spatie\LaravelMobilePass\Support\Google\GoogleJwtSigner;
-use Spatie\LaravelMobilePass\Tests\TestSupport\Google\GoogleFixtures;
+use Vos\DoctrineMobilePass\Support\Google\GoogleJwtSigner;
+use Vos\DoctrineMobilePass\Tests\TestSupport\Google\GoogleFixtures;
 
 beforeEach(function () {
     config()->set('mobile-pass.google.service_account_key_path', GoogleFixtures::serviceAccountPath());

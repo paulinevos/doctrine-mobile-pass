@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Validators;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Validators;
 
 use Illuminate\Validation\Rule;
-use Spatie\LaravelMobilePass\Enums\TransitType;
+use Vos\DoctrineMobilePass\Enums\TransitType;
 
 class BoardingApplePassValidator extends ApplePassValidator
 {

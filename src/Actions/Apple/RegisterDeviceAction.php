@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Actions\Apple;
+namespace Vos\DoctrineMobilePass\Actions\Apple;
 
-use Spatie\LaravelMobilePass\Events\MobilePassAdded;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Events\MobilePassAdded;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\Config;
 
 class RegisterDeviceAction
 {

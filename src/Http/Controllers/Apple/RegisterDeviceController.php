@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Controllers\Apple;
+namespace Vos\DoctrineMobilePass\Http\Controllers\Apple;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Spatie\LaravelMobilePass\Actions\Apple\RegisterDeviceAction;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Actions\Apple\RegisterDeviceAction;
+use Vos\DoctrineMobilePass\Support\Config;
 
 /**
  * Registering a Device to Receive Push Notifications for a Pass

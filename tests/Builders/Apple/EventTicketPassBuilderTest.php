@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Builders\Apple\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
 
 it('builds a basic event ticket', function () {
     $eventTicketPassBuilder = EventTicketPassBuilder::make()

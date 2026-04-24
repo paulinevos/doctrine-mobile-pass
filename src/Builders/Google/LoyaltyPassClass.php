@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google;
+namespace Vos\DoctrineMobilePass\Builders\Google;
 
-use Spatie\LaravelMobilePass\Builders\Google\Entities\Image;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GooglePassClassValidator;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\LoyaltyClassValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassClassValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\LoyaltyClassValidator;
 
 class LoyaltyPassClass extends GooglePassClass
 {

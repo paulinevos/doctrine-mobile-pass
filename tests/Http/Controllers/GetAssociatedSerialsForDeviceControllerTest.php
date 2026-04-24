@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\Http;
+namespace Vos\DoctrineMobilePass\Tests\Http;
 
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 use Spatie\TestTime\TestTime;
 
 it('returns pass serials associated with a device', function () {
