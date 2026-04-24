@@ -1,14 +1,21 @@
 {
-    "name": "spatie/laravel-mobile-pass",
+    "name": "vos/doctrine-mobile-pass",
     "description": "Generate mobile passes for iOS and Android",
     "keywords": [
-        "Spatie",
-        "laravel",
-        "laravel-mobile-pass"
+        "doctrine",
+        "doctrine-orm",
+        "doctrine-odm",
+        "mongodb-odm",
+        "doctrine-mobile-pass"
     ],
-    "homepage": "https://github.com/spatie/laravel-mobile-pass",
+    "homepage": "https://github.com/paulinevos/doctrine-mobile-pass",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Pauline Vos",
+            "email": "info@pauline-vos.nl",
+            "role": "Developer"
+        },
         {
             "name": "Dan Johnson",
             "email": "github@danjohnson.xyz",
@@ -69,13 +76,6 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Spatie\\LaravelMobilePass\\MobilePassServiceProvider"
-            ]
         }
     },
     "minimum-stability": "dev",
