@@ -17,9 +17,11 @@ class DownloadableMobilePass implements Responsable
 
     public function toResponse($request): Response
     {
-        return response($this->passContent)->withHeaders([
+        return response($this->passContent)->withHeaders(
+            [
             'Content-Type' => 'application/vnd.apple.pkpass',
             'Content-Disposition' => "inline; filename=\"{$this->downloadName}.pkpass\"",
-        ]);
+            ]
+        );
     }
 }

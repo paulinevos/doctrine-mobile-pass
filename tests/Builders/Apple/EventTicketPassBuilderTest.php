@@ -2,32 +2,38 @@
 
 use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
 
-it('builds a basic event ticket', function () {
-    $eventTicketPassBuilder = EventTicketPassBuilder::make()
-        ->setOrganizationName('My organization')
-        ->setSerialNumber(123456)
-        ->setDescription('Hello!')
-        ->addHeaderField('event', 'Laracon EU')
-        ->addField('venue', 'Amsterdam')
-        ->addSecondaryField('name', 'Dan Johnson')
-        ->addAuxiliaryField('seat', 'A12')
-        ->setIconImage(getTestSupportPath('images/spatie-thumbnail.png'));
+it(
+    'builds a basic event ticket', function () {
+        $eventTicketPassBuilder = EventTicketPassBuilder::make()
+            ->setOrganizationName('My organization')
+            ->setSerialNumber(123456)
+            ->setDescription('Hello!')
+            ->addHeaderField('event', 'Laracon EU')
+            ->addField('venue', 'Amsterdam')
+            ->addSecondaryField('name', 'Dan Johnson')
+            ->addAuxiliaryField('seat', 'A12')
+            ->setIconImage(getTestSupportPath('images/spatie-thumbnail.png'));
 
-    $compiledData = $eventTicketPassBuilder->data();
+        $compiledData = $eventTicketPassBuilder->data();
 
-    expect($compiledData)->toHaveKey('eventTicket');
-    expect($compiledData['eventTicket'])->toHaveKeys([
-        'primaryFields',
-        'secondaryFields',
-        'headerFields',
-        'auxiliaryFields',
-    ]);
+        expect($compiledData)->toHaveKey('eventTicket');
+        expect($compiledData['eventTicket'])->toHaveKeys(
+            [
+            'primaryFields',
+            'secondaryFields',
+            'headerFields',
+            'auxiliaryFields',
+            ]
+        );
 
-    $generatedPass = $eventTicketPassBuilder->generate();
+        $generatedPass = $eventTicketPassBuilder->generate();
 
-    expect($generatedPass)->toMatchMobilePassSnapshot();
-});
+        expect($generatedPass)->toMatchMobilePassSnapshot();
+    }
+);
 
-it('has a name', function () {
-    expect(EventTicketPassBuilder::name())->toBe('event_ticket');
-});
+it(
+    'has a name', function () {
+        expect(EventTicketPassBuilder::name())->toBe('event_ticket');
+    }
+);

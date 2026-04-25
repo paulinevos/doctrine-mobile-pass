@@ -36,14 +36,16 @@ class GoogleMobilePassEvent extends Model
         ];
     }
 
-    /** @return BelongsTo<MobilePass, $this> */
+    /**
+     * @return BelongsTo<MobilePass, $this> 
+     */
     public function mobilePass(): BelongsTo
     {
         return $this->belongsTo(Config::mobilePassModel(), 'mobile_pass_id');
     }
 
     /**
-     * @param  Builder<self>  $query
+     * @param  Builder<self> $query
      * @return Builder<self>
      */
     public function scopeSaves(Builder $query): Builder
@@ -52,7 +54,7 @@ class GoogleMobilePassEvent extends Model
     }
 
     /**
-     * @param  Builder<self>  $query
+     * @param  Builder<self> $query
      * @return Builder<self>
      */
     public function scopeRemoves(Builder $query): Builder

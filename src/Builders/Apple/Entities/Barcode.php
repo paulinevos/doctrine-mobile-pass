@@ -12,14 +12,17 @@ class Barcode
         public BarcodeType $format,
         public string $message,
         public string $messageEncoding = 'iso-8859-1'
-    ) {}
+    ) {
+    }
 
     public static function make(BarcodeType $format, string $message, string $messageEncoding = 'iso-8859-1'): self
     {
         return new self($format, $message, $messageEncoding);
     }
 
-    /** @param  array<string, mixed>  $fields */
+    /**
+     * @param array<string, mixed> $fields 
+     */
     public static function fromArray(array $fields): self
     {
         $barcode = new self(
@@ -42,11 +45,13 @@ class Barcode
 
     public function toArray(): array
     {
-        return array_filter([
+        return array_filter(
+            [
             'format' => $this->format->value,
             'message' => $this->message,
             'messageEncoding' => $this->messageEncoding,
             'altText' => $this->altText,
-        ]);
+            ]
+        );
     }
 }

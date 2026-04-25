@@ -3,19 +3,23 @@
 use Illuminate\Support\Facades\URL;
 use Vos\DoctrineMobilePass\Models\MobilePass;
 
-it('serves the pkpass at a signed url', function () {
-    $pass = MobilePass::factory()->create();
+it(
+    'serves the pkpass at a signed url', function () {
+        $pass = MobilePass::factory()->create();
 
-    $url = URL::signedRoute('mobile-pass.apple.download', ['mobilePass' => $pass->id]);
+        $url = URL::signedRoute('mobile-pass.apple.download', ['mobilePass' => $pass->id]);
 
-    $this->get($url)
-        ->assertOk()
-        ->assertHeader('Content-Type', 'application/vnd.apple.pkpass');
-});
+        $this->get($url)
+            ->assertOk()
+            ->assertHeader('Content-Type', 'application/vnd.apple.pkpass');
+    }
+);
 
-it('rejects an unsigned url', function () {
-    $pass = MobilePass::factory()->create();
+it(
+    'rejects an unsigned url', function () {
+        $pass = MobilePass::factory()->create();
 
-    $this->get(route('mobile-pass.apple.download', ['mobilePass' => $pass->id]))
-        ->assertForbidden();
-});
+        $this->get(route('mobile-pass.apple.download', ['mobilePass' => $pass->id]))
+            ->assertForbidden();
+    }
+);

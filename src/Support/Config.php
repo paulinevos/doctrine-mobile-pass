@@ -24,7 +24,9 @@ use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class Config
 {
-    /** @return array<string, array<string, class-string>> */
+    /**
+     * @return array<string, array<string, class-string>> 
+     */
     protected static function defaultBuilders(): array
     {
         return [
@@ -46,25 +48,33 @@ class Config
         ];
     }
 
-    /** @return class-string<MobilePass> */
+    /**
+     * @return class-string<MobilePass> 
+     */
     public static function mobilePassModel(): string
     {
         return self::getModelClass('mobile_pass', MobilePass::class);
     }
 
-    /** @return class-string<AppleMobilePassRegistration> */
+    /**
+     * @return class-string<AppleMobilePassRegistration> 
+     */
     public static function appleMobilePassRegistrationModel(): string
     {
         return self::getModelClass('apple_mobile_pass_registration', AppleMobilePassRegistration::class);
     }
 
-    /** @return class-string<AppleMobilePassDevice> */
+    /**
+     * @return class-string<AppleMobilePassDevice> 
+     */
     public static function appleDeviceModel(): string
     {
         return self::getModelClass('apple_mobile_pass_device', AppleMobilePassDevice::class);
     }
 
-    /** @return class-string<GoogleMobilePassEvent> */
+    /**
+     * @return class-string<GoogleMobilePassEvent> 
+     */
     public static function googleMobilePassEventModel(): string
     {
         return self::getModelClass('google_mobile_pass_event', GoogleMobilePassEvent::class);
@@ -82,7 +92,7 @@ class Config
     }
 
     /**
-     * @param  class-string  $shouldBeOrExtend
+     * @param  class-string $shouldBeOrExtend
      * @return class-string
      */
     public static function getActionClass(string $actionName, string $shouldBeOrExtend): string
@@ -96,7 +106,9 @@ class Config
         return $actionClass;
     }
 
-    /** @return class-string<ApplePassBuilder|GooglePassBuilder> */
+    /**
+     * @return class-string<ApplePassBuilder|GooglePassBuilder> 
+     */
     public static function getPassBuilderClass(string $passBuilderName, Platform $platform): string
     {
         $configuredClass = config("mobile-pass.builders.{$platform->value}.{$passBuilderName}");

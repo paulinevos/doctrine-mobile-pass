@@ -7,77 +7,109 @@ use Vos\DoctrineMobilePass\Events\MobilePassRemoved;
 use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
 use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
 
-it('deletes the registration', function () {
-    $registration = AppleMobilePassRegistration::factory()->create();
+it(
+    'deletes the registration', function () {
+        $registration = AppleMobilePassRegistration::factory()->create();
 
-    $this
-        ->withoutMiddleware()
-        ->deleteJson(route('mobile-pass.unregister-device', [
-            'passSerial' => $registration->pass->getKey(),
-            'deviceId' => $registration->device->getKey(),
-            'passTypeId' => $registration->pass_type_id,
-        ]))
-        ->assertSuccessful();
+        $this
+            ->withoutMiddleware()
+            ->deleteJson(
+                route(
+                    'mobile-pass.unregister-device', [
+                    'passSerial' => $registration->pass->getKey(),
+                    'deviceId' => $registration->device->getKey(),
+                    'passTypeId' => $registration->pass_type_id,
+                    ]
+                )
+            )
+            ->assertSuccessful();
 
-    expect($registration->fresh())->toBeNull();
-});
+        expect($registration->fresh())->toBeNull();
+    }
+);
 
-it('doesnt delete the device', function () {
-    $registration = AppleMobilePassRegistration::factory()->create();
+it(
+    'doesnt delete the device', function () {
+        $registration = AppleMobilePassRegistration::factory()->create();
 
-    $this
-        ->withoutMiddleware()
-        ->deleteJson(route('mobile-pass.unregister-device', [
-            'passSerial' => $registration->pass->getKey(),
-            'deviceId' => $registration->device->getKey(),
-            'passTypeId' => $registration->pass_type_id,
-        ]))
-        ->assertSuccessful();
+        $this
+            ->withoutMiddleware()
+            ->deleteJson(
+                route(
+                    'mobile-pass.unregister-device', [
+                    'passSerial' => $registration->pass->getKey(),
+                    'deviceId' => $registration->device->getKey(),
+                    'passTypeId' => $registration->pass_type_id,
+                    ]
+                )
+            )
+            ->assertSuccessful();
 
-    $this->assertModelExists(AppleMobilePassDevice::class, [
-        'device_id' => $registration->device->getKey(),
-    ]);
-});
+        $this->assertModelExists(
+            AppleMobilePassDevice::class, [
+            'device_id' => $registration->device->getKey(),
+            ]
+        );
+    }
+);
 
-it('returns success even if the registration wasnt found', function () {
-    $this
-        ->withoutMiddleware()
-        ->deleteJson(route('mobile-pass.unregister-device', [
-            'passSerial' => '12345',
-            'deviceId' => '12345',
-            'passTypeId' => 'pass.com.example',
-        ]))
-        ->assertSuccessful();
-});
+it(
+    'returns success even if the registration wasnt found', function () {
+        $this
+            ->withoutMiddleware()
+            ->deleteJson(
+                route(
+                    'mobile-pass.unregister-device', [
+                    'passSerial' => '12345',
+                    'deviceId' => '12345',
+                    'passTypeId' => 'pass.com.example',
+                    ]
+                )
+            )
+            ->assertSuccessful();
+    }
+);
 
-it('fires MobilePassRemoved when a registration is deleted', function () {
-    $registration = AppleMobilePassRegistration::factory()->create();
+it(
+    'fires MobilePassRemoved when a registration is deleted', function () {
+        $registration = AppleMobilePassRegistration::factory()->create();
 
-    Event::fake([MobilePassRemoved::class]);
+        Event::fake([MobilePassRemoved::class]);
 
-    $this
-        ->withoutMiddleware()
-        ->deleteJson(route('mobile-pass.unregister-device', [
-            'passSerial' => $registration->pass->getKey(),
-            'deviceId' => $registration->device->getKey(),
-            'passTypeId' => $registration->pass_type_id,
-        ]));
+        $this
+            ->withoutMiddleware()
+            ->deleteJson(
+                route(
+                    'mobile-pass.unregister-device', [
+                    'passSerial' => $registration->pass->getKey(),
+                    'deviceId' => $registration->device->getKey(),
+                    'passTypeId' => $registration->pass_type_id,
+                    ]
+                )
+            );
 
-    Event::assertDispatched(
-        fn (MobilePassRemoved $event) => $event->mobilePass->is($registration->pass),
-    );
-});
+        Event::assertDispatched(
+            fn (MobilePassRemoved $event) => $event->mobilePass->is($registration->pass),
+        );
+    }
+);
 
-it('does not fire MobilePassRemoved when no registration matches', function () {
-    Event::fake([MobilePassRemoved::class]);
+it(
+    'does not fire MobilePassRemoved when no registration matches', function () {
+        Event::fake([MobilePassRemoved::class]);
 
-    $this
-        ->withoutMiddleware()
-        ->deleteJson(route('mobile-pass.unregister-device', [
-            'passSerial' => '12345',
-            'deviceId' => '12345',
-            'passTypeId' => 'pass.com.example',
-        ]));
+        $this
+            ->withoutMiddleware()
+            ->deleteJson(
+                route(
+                    'mobile-pass.unregister-device', [
+                    'passSerial' => '12345',
+                    'deviceId' => '12345',
+                    'passTypeId' => 'pass.com.example',
+                    ]
+                )
+            );
 
-    Event::assertNotDispatched(MobilePassRemoved::class);
-});
+        Event::assertNotDispatched(MobilePassRemoved::class);
+    }
+);

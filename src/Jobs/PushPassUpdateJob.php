@@ -16,7 +16,9 @@ class PushPassUpdateJob implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
-    /** @param class-string $actionClass */
+    /**
+     * @param class-string $actionClass 
+     */
     public function __construct(
         public MobilePass $mobilePass,
         public string $actionClass,

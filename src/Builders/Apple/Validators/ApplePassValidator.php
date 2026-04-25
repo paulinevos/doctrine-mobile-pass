@@ -8,7 +8,9 @@ use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 abstract class ApplePassValidator
 {
-    /** @return array<string, Assert\Required|Assert\Optional> */
+    /**
+     * @return array<string, Assert\Required|Assert\Optional> 
+     */
     protected function fields(): array
     {
         return [

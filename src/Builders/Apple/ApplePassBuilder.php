@@ -74,7 +74,9 @@ abstract class ApplePassBuilder
 
     protected ?int $maxDistance = null;
 
-    /** @var array<int, Location> */
+    /**
+     * @var array<int, Location> 
+     */
     protected array $locations = [];
 
     protected ?NfcPayload $nfc = null;
@@ -86,7 +88,9 @@ abstract class ApplePassBuilder
         return new static;
     }
 
-    /** @internal */
+    /**
+     * @internal 
+     */
     public static function hydrate(MobilePass $model): static
     {
         return new static($model->content, $model->images, $model);
@@ -439,23 +443,27 @@ abstract class ApplePassBuilder
     public function save(): MobilePass
     {
         if ($this->model) {
-            $this->model->update([
+            $this->model->update(
+                [
                 'content' => $this->data(),
                 'images' => $this->images,
                 'download_name' => $this->downloadName,
-            ]);
+                ]
+            );
 
             return $this->model;
         }
 
-        return MobilePass::query()->create([
+        return MobilePass::query()->create(
+            [
             'type' => $this->type->value,
             'platform' => static::platform(),
             'builder_name' => static::name(),
             'content' => $this->data(),
             'images' => $this->images,
             'download_name' => $this->downloadName,
-        ]);
+            ]
+        );
     }
 
     public function data(): array
@@ -500,42 +508,48 @@ abstract class ApplePassBuilder
 
     protected function compileSemantics(): ?array
     {
-        return array_filter([
+        return array_filter(
+            [
             'totalPrice' => $this->totalPrice?->toArray(),
             'wifiAccess' => $this->wifiDetails?->toArray(),
-        ]);
+            ]
+        );
     }
 
     protected function compileData(): array
     {
         $barcode = $this->barcode?->toArray();
 
-        return array_merge($this->data, array_filter([
-            'formatVersion' => 1,
-            'organizationName' => $this->organizationName,
-            'passTypeIdentifier' => self::appleConfig('type_identifier'),
-            'serialNumber' => $this->serialNumber,
-            'authenticationToken' => self::appleConfig('webservice.secret'),
-            'webServiceURL' => $this->webServiceURL(),
-            'teamIdentifier' => self::appleConfig('team_identifier'),
-            'description' => $this->description,
-            'semantics' => $this->compileSemantics(),
-            'backgroundColor' => (string) $this->backgroundColor,
-            'foregroundColor' => (string) $this->foregroundColor,
-            'labelColor' => (string) $this->labelColor,
-            'barcode' => $barcode,
-            'barcodes' => $barcode ? [$barcode] : null,
-            'relevantDate' => $this->relevantDate?->toIso8601String(),
-            'locations' => empty($this->locations) ? null : array_map(
-                fn (Location $location) => $location->toArray(),
-                $this->locations,
-            ),
-            'maxDistance' => $this->maxDistance,
-            'nfc' => $this->nfc?->toArray(),
-            'userInfo' => [
+        return array_merge(
+            $this->data, array_filter(
+                [
+                'formatVersion' => 1,
+                'organizationName' => $this->organizationName,
+                'passTypeIdentifier' => self::appleConfig('type_identifier'),
+                'serialNumber' => $this->serialNumber,
+                'authenticationToken' => self::appleConfig('webservice.secret'),
+                'webServiceURL' => $this->webServiceURL(),
+                'teamIdentifier' => self::appleConfig('team_identifier'),
+                'description' => $this->description,
+                'semantics' => $this->compileSemantics(),
+                'backgroundColor' => (string) $this->backgroundColor,
+                'foregroundColor' => (string) $this->foregroundColor,
+                'labelColor' => (string) $this->labelColor,
+                'barcode' => $barcode,
+                'barcodes' => $barcode ? [$barcode] : null,
+                'relevantDate' => $this->relevantDate?->toIso8601String(),
+                'locations' => empty($this->locations) ? null : array_map(
+                    fn (Location $location) => $location->toArray(),
+                    $this->locations,
+                ),
+                'maxDistance' => $this->maxDistance,
+                'nfc' => $this->nfc?->toArray(),
+                'userInfo' => [
                 'passType' => $this->type->value,
-            ],
-        ]));
+                ],
+                ]
+            )
+        );
     }
 
     protected function webServiceURL(): ?string

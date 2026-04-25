@@ -7,14 +7,17 @@ class Price
     public function __construct(
         public ?string $amount = null,
         public ?string $currencyCode = null,
-    ) {}
+    ) {
+    }
 
     public static function make(?string $amount = null, ?string $currencyCode = null): self
     {
         return new self($amount, $currencyCode);
     }
 
-    /** @param  array<string, mixed>  $values */
+    /**
+     * @param array<string, mixed> $values 
+     */
     public static function fromArray(array $values): self
     {
         return new self(

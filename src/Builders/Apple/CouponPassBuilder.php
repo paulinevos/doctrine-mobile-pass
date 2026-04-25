@@ -20,12 +20,14 @@ class CouponPassBuilder extends ApplePassBuilder
         return array_merge(
             parent::compileData(),
             [
-                'coupon' => array_filter([
+                'coupon' => array_filter(
+                    [
                     'primaryFields' => $this->primaryFields?->values()->toArray(),
                     'secondaryFields' => $this->secondaryFields?->values()->toArray(),
                     'headerFields' => $this->headerFields?->values()->toArray(),
                     'auxiliaryFields' => $this->auxiliaryFields?->values()->toArray(),
-                ]),
+                    ]
+                ),
             ],
         );
     }

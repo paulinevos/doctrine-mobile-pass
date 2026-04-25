@@ -12,7 +12,9 @@ class HandleCallbackController extends Controller
 {
     public function __invoke(Request $request): Response
     {
-        /** @var class-string<HandleGoogleCallbackAction> $actionClass */
+        /**
+ * @var class-string<HandleGoogleCallbackAction> $actionClass 
+*/
         $actionClass = Config::getActionClass('handle_google_callback', HandleGoogleCallbackAction::class);
 
         app($actionClass)->execute($request);

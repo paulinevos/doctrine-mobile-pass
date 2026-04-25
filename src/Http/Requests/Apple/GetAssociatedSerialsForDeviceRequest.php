@@ -13,10 +13,12 @@ class GetAssociatedSerialsForDeviceRequest extends FormRequest
     {
         $registrationsModel = Config::appleMobilePassRegistrationModel();
 
-        return $registrationsModel::where([
+        return $registrationsModel::where(
+            [
             'device_id' => $this->route('deviceId'),
             'pass_type_id' => $this->route('passTypeId'),
-        ]);
+            ]
+        );
     }
 
     public function passesUpdatedSince(): ?Carbon

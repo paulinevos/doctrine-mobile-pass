@@ -43,12 +43,16 @@ class OfferPassBuilder extends GooglePassBuilder
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'title' => $this->title,
             'redemptionCode' => $this->redemptionCode,
-        ]);
+            ]
+        );
     }
 }

@@ -7,7 +7,9 @@ use Vos\DoctrineMobilePass\Support\Google\GoogleWalletClient;
 
 class NotifyGoogleOfPassUpdateAction
 {
-    public function __construct(protected GoogleWalletClient $client) {}
+    public function __construct(protected GoogleWalletClient $client)
+    {
+    }
 
     public function execute(MobilePass $mobilePass): void
     {

@@ -87,15 +87,20 @@ class BoardingPassClass extends GooglePassClass
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        $flightHeader = $this->filterEmpty([
+        $flightHeader = $this->filterEmpty(
+            [
             'carrier' => $this->airlineCode ? ['airlineCode' => $this->airlineCode] : null,
             'flightNumber' => $this->flightNumber,
-        ]);
+            ]
+        );
 
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'issuerName' => $this->issuerName,
             'localScheduledDepartureDateTime' => $this->localScheduledDepartureDateTime?->toIso8601String(),
             'flightHeader' => $flightHeader,
@@ -105,10 +110,13 @@ class BoardingPassClass extends GooglePassClass
             'heroImage' => $this->hero?->toArray(),
             'hexBackgroundColor' => $this->backgroundColor,
             'reviewStatus' => $this->reviewStatus,
-        ]);
+            ]
+        );
     }
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected function applyHydratedPayload(array $payload): void
     {
         $this->hydrateCommonFields($payload);

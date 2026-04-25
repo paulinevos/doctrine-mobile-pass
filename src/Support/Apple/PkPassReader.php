@@ -33,7 +33,9 @@ class PkPassReader implements Arrayable
         $this->contentZip->open($this->tempFile);
     }
 
-    /** @return array<int, string> */
+    /**
+     * @return array<int, string> 
+     */
     public function containingFiles(): array
     {
         $files = [];

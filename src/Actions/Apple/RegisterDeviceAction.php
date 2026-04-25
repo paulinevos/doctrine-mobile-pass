@@ -19,11 +19,13 @@ class RegisterDeviceAction
         $pass = $this->mobilePass($passSerial);
         $device = $this->device($deviceId, $pushToken);
 
-        $registration = $pass->registrations()->firstOrCreate([
+        $registration = $pass->registrations()->firstOrCreate(
+            [
             'device_id' => $device->getKey(),
             'pass_type_id' => $passTypeId,
             'pass_serial' => $passSerial,
-        ]);
+            ]
+        );
 
         if ($registration->wasRecentlyCreated) {
             event(new MobilePassAdded($pass));

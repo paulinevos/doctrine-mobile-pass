@@ -12,7 +12,9 @@ class GoogleJwtSigner
 
     protected const SCOPE = 'https://www.googleapis.com/auth/wallet_object.issuer';
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     public function signSaveUrlJwt(array $payload): string
     {
         $claims = [
@@ -35,10 +37,12 @@ class GoogleJwtSigner
             return $cached;
         }
 
-        $response = Http::asForm()->post('https://oauth2.googleapis.com/token', [
+        $response = Http::asForm()->post(
+            'https://oauth2.googleapis.com/token', [
             'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
             'assertion' => $this->signAssertionJwt(),
-        ])->throw();
+            ]
+        )->throw();
 
         $token = (string) $response->json('access_token');
         $ttl = max(60, ((int) $response->json('expires_in', 3600)) - 30);

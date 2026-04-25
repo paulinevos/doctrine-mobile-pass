@@ -61,22 +61,30 @@ class LoyaltyPassBuilder extends GooglePassBuilder
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        $balance = $this->filterEmpty([
+        $balance = $this->filterEmpty(
+            [
             'micros' => $this->balanceMicros,
             'string' => $this->balanceString,
-        ]);
+            ]
+        );
 
-        $loyaltyPoints = $this->filterEmpty([
+        $loyaltyPoints = $this->filterEmpty(
+            [
             'balance' => $balance,
-        ]);
+            ]
+        );
 
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'accountId' => $this->accountId,
             'accountName' => $this->accountName,
             'loyaltyPoints' => $loyaltyPoints,
-        ]);
+            ]
+        );
     }
 }

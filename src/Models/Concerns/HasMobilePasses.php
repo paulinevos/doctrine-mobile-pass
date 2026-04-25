@@ -9,7 +9,9 @@ use Vos\DoctrineMobilePass\Enums\Platform;
 use Vos\DoctrineMobilePass\Models\MobilePass;
 use Vos\DoctrineMobilePass\Support\Config;
 
-/** @mixin Model */
+/**
+ * @mixin Model 
+*/
 trait HasMobilePasses
 {
     public function addMobilePass(MobilePass $mobilePass): void

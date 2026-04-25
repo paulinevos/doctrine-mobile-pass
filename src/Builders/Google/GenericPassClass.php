@@ -69,10 +69,13 @@ class GenericPassClass extends GooglePassClass
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'issuerName' => $this->issuerName,
             'cardTitle' => $this->cardTitle?->toArray(),
             'subheader' => $this->subheader?->toArray(),
@@ -81,10 +84,13 @@ class GenericPassClass extends GooglePassClass
             'logo' => $this->logo?->toArray(),
             'heroImage' => $this->hero?->toArray(),
             'reviewStatus' => $this->reviewStatus,
-        ]);
+            ]
+        );
     }
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected function applyHydratedPayload(array $payload): void
     {
         $this->hydrateCommonFields($payload);

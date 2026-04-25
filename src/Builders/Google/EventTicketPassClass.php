@@ -79,15 +79,20 @@ class EventTicketPassClass extends GooglePassClass
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        $venue = $this->filterEmpty([
+        $venue = $this->filterEmpty(
+            [
             'name' => $this->venueName?->toArray(),
             'address' => $this->venueAddress?->toArray(),
-        ]);
+            ]
+        );
 
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'issuerName' => $this->issuerName,
             'eventName' => $this->eventName?->toArray(),
             'venue' => $venue,
@@ -96,10 +101,13 @@ class EventTicketPassClass extends GooglePassClass
             'heroImage' => $this->hero?->toArray(),
             'hexBackgroundColor' => $this->backgroundColor,
             'reviewStatus' => $this->reviewStatus,
-        ]);
+            ]
+        );
     }
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected function applyHydratedPayload(array $payload): void
     {
         $this->hydrateCommonFields($payload);

@@ -26,13 +26,19 @@ abstract class GooglePassClass
 
     abstract protected static function validator(): GooglePassClassValidator;
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     abstract protected function compileData(): array;
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     abstract protected function applyHydratedPayload(array $payload): void;
 
-    public function __construct(protected string $suffix) {}
+    public function __construct(protected string $suffix)
+    {
+    }
 
     public static function make(string $suffix): static
     {
@@ -73,14 +79,18 @@ abstract class GooglePassClass
      */
     public function retire(): static
     {
-        app(GoogleWalletClient::class)->patchClass(static::resourceName(), $this->id(), [
+        app(GoogleWalletClient::class)->patchClass(
+            static::resourceName(), $this->id(), [
             'reviewStatus' => 'REJECTED',
-        ]);
+            ]
+        );
 
         return $this;
     }
 
-    /** @return Collection<int, static> */
+    /**
+     * @return Collection<int, static> 
+     */
     public static function all(): Collection
     {
         $raw = app(GoogleWalletClient::class)->listClasses(static::resourceName());
@@ -105,7 +115,9 @@ abstract class GooglePassClass
         return static::hydrate($payload);
     }
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected static function hydrate(array $payload): static
     {
         $id = (string) ($payload['id'] ?? '');
@@ -118,7 +130,7 @@ abstract class GooglePassClass
     }
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     protected function filterEmpty(array $payload): array
@@ -126,7 +138,9 @@ abstract class GooglePassClass
         return array_filter($payload, fn ($value) => $value !== null && $value !== []);
     }
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected function hydrateCommonFields(array $payload): void
     {
         if (isset($payload['issuerName'])) {
@@ -142,7 +156,9 @@ abstract class GooglePassClass
         }
     }
 
-    /** @param  array<string, mixed>  $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected function hydrateImage(array $payload, string $key): ?Image
     {
         $uri = $payload[$key]['sourceUri']['uri'] ?? null;
@@ -154,7 +170,9 @@ abstract class GooglePassClass
         return Image::fromUrl((string) $uri);
     }
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected function hydrateLocalizedString(array $payload, string $key): ?LocalizedString
     {
         $value = $payload[$key]['defaultValue']['value'] ?? null;

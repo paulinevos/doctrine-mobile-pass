@@ -8,11 +8,13 @@ use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 abstract class GooglePassClassValidator
 {
-    /** @return array<string, Assert\Required|Assert\Optional> */
+    /**
+     * @return array<string, Assert\Required|Assert\Optional> 
+     */
     abstract protected function fields(): array;
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     public function validate(array $payload): array

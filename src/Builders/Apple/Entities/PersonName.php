@@ -12,7 +12,8 @@ class PersonName
         public ?string $nameSuffix = null,
         public ?string $nickname = null,
         public ?string $phoneticRepresentation = null
-    ) {}
+    ) {
+    }
 
     public static function make(
         ?string $familyName = null,
@@ -34,7 +35,9 @@ class PersonName
         );
     }
 
-    /** @param  array<string, mixed>  $values */
+    /**
+     * @param array<string, mixed> $values 
+     */
     public static function fromArray(array $values): self
     {
         return new self(
@@ -50,13 +53,15 @@ class PersonName
 
     public function toArray(): array
     {
-        return array_filter([
+        return array_filter(
+            [
             'familyName' => $this->familyName,
             'givenName' => $this->givenName,
             'middleName' => $this->middleName,
             'namePrefix' => $this->namePrefix,
             'nickname' => $this->nickname,
             'phoneticRepresentation' => $this->phoneticRepresentation,
-        ]);
+            ]
+        );
     }
 }

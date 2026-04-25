@@ -20,12 +20,14 @@ class GenericPassBuilder extends ApplePassBuilder
         return array_merge(
             parent::compileData(),
             [
-                'generic' => array_filter([
+                'generic' => array_filter(
+                    [
                     'primaryFields' => $this->primaryFields?->values()->toArray(),
                     'secondaryFields' => $this->secondaryFields?->values()->toArray(),
                     'headerFields' => $this->headerFields?->values()->toArray(),
                     'auxiliaryFields' => $this->auxiliaryFields?->values()->toArray(),
-                ]),
+                    ]
+                ),
             ],
         );
     }

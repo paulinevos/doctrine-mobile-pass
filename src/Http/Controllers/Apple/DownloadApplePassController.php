@@ -16,7 +16,9 @@ class DownloadApplePassController extends Controller
 
         $modelClass = Config::mobilePassModel();
 
-        /** @var MobilePass $pass */
+        /**
+ * @var MobilePass $pass 
+*/
         $pass = $modelClass::query()->findOrFail($mobilePass);
 
         return $pass->download();

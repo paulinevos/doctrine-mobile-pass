@@ -11,7 +11,9 @@ use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class TestMail extends Mailable
 {
-    public function __construct(protected MobilePass $pass) {}
+    public function __construct(protected MobilePass $pass)
+    {
+    }
 
     public function envelope()
     {

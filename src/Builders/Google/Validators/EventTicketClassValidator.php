@@ -11,17 +11,21 @@ class EventTicketClassValidator extends GooglePassClassValidator
         return [
             'id' => new Assert\Required(new Assert\NotBlank()),
             'issuerName' => new Assert\Optional(),
-            'eventName' => new Assert\Required(new Assert\Collection(
-                allowExtraFields: true,
-                fields: [
-                    'defaultValue' => new Assert\Required(new Assert\Collection(
-                        allowExtraFields: true,
-                        fields: [
+            'eventName' => new Assert\Required(
+                new Assert\Collection(
+                    allowExtraFields: true,
+                    fields: [
+                    'defaultValue' => new Assert\Required(
+                        new Assert\Collection(
+                            allowExtraFields: true,
+                            fields: [
                             'value' => new Assert\Required(new Assert\NotBlank()),
-                        ],
-                    )),
-                ],
-            )),
+                            ],
+                        )
+                    ),
+                    ],
+                )
+            ),
             'venue' => new Assert\Optional(),
             'dateTime' => new Assert\Optional(),
             'logo' => new Assert\Optional(),

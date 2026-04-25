@@ -22,10 +22,12 @@ class GetAssociatedSerialsForDeviceController extends Controller
 
         $registrations = $request
             ->registrationsQuery()
-            ->when($updatedSince, fn (Builder $query) => $query->whereHas(
-                'pass',
-                fn (Builder $passQuery) => $passQuery->where('updated_at', '>', $updatedSince),
-            ))
+            ->when(
+                $updatedSince, fn (Builder $query) => $query->whereHas(
+                    'pass',
+                    fn (Builder $passQuery) => $passQuery->where('updated_at', '>', $updatedSince),
+                )
+            )
             ->get();
 
         if ($registrations->isEmpty()) {

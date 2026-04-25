@@ -17,7 +17,9 @@ class NotifyAppleOfPassUpdateAction
         );
     }
 
-    /** @return array<string, string> */
+    /**
+     * @return array<string, string> 
+     */
     protected function headers(AppleMobilePassRegistration $registration): array
     {
         return [
@@ -25,7 +27,9 @@ class NotifyAppleOfPassUpdateAction
         ];
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function options(AppleMobilePassRegistration $registration): array
     {
         $builder = $registration->pass->builder();
