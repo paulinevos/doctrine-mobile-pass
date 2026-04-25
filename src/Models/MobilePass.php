@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Mail\Attachment;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\Response;
 use Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
 use Vos\DoctrineMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction;
 use Vos\DoctrineMobilePass\Builders\Apple\ApplePassBuilder;
@@ -26,7 +27,6 @@ use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
 use Vos\DoctrineMobilePass\Support\Apple\DownloadableMobilePass;
 use Vos\DoctrineMobilePass\Support\Config;
 use Vos\DoctrineMobilePass\Support\Google\GoogleJwtSigner;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @property string $builder_name

@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Vos\DoctrineMobilePass\MobilePassServiceProvider;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
 use Spatie\TestTime\TestTime;
+use Vos\DoctrineMobilePass\MobilePassServiceProvider;
 
 class TestCase extends Orchestra
 {

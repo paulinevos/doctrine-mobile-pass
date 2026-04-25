@@ -7,8 +7,8 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed;
 use Throwable;
+use Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed;
 
 class GoogleWalletClient
 {

@@ -2,10 +2,10 @@
 
 namespace Vos\DoctrineMobilePass\Tests\Http;
 
+use Spatie\TestTime\TestTime;
 use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
 use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
 use Vos\DoctrineMobilePass\Models\MobilePass;
-use Spatie\TestTime\TestTime;
 
 it('returns pass serials associated with a device', function () {
     $registration = AppleMobilePassRegistration::factory()->create();
