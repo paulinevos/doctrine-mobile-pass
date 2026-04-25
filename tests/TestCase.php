@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
 use Spatie\TestTime\TestTime;
-use Vos\DoctrineMobilePass\MobilePassServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -28,13 +27,6 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Spatie\\LaravelMobilePass\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
-    }
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            MobilePassServiceProvider::class,
-        ];
     }
 
     protected function getEnvironmentSetUp($app)
