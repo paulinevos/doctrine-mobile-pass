@@ -2,7 +2,6 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google;
 
-use Carbon\Carbon;
 use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
 use Vos\DoctrineMobilePass\Builders\Google\Entities\LocalizedString;
 use Vos\DoctrineMobilePass\Builders\Google\Validators\EventTicketClassValidator;
@@ -16,7 +15,7 @@ class EventTicketPassClass extends GooglePassClass
 
     protected ?LocalizedString $venueAddress = null;
 
-    protected ?Carbon $startDate = null;
+    protected ?\DateTimeInterface $startDate = null;
 
     protected ?Image $logo = null;
 
@@ -58,7 +57,7 @@ class EventTicketPassClass extends GooglePassClass
         return $this;
     }
 
-    public function setStartDate(Carbon $startDate): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
         $this->startDate = $startDate;
 
@@ -96,7 +95,7 @@ class EventTicketPassClass extends GooglePassClass
             'issuerName' => $this->issuerName,
             'eventName' => $this->eventName?->toArray(),
             'venue' => $venue,
-            'dateTime' => $this->startDate ? ['start' => $this->startDate->toIso8601String()] : null,
+            'dateTime' => $this->startDate ? ['start' => $this->startDate->format(\DateTimeInterface::ATOM)] : null,
             'logo' => $this->logo?->toArray(),
             'heroImage' => $this->hero?->toArray(),
             'hexBackgroundColor' => $this->backgroundColor,
@@ -117,7 +116,7 @@ class EventTicketPassClass extends GooglePassClass
         $this->venueAddress = $this->hydrateLocalizedString($payload['venue'] ?? [], 'address');
 
         if (isset($payload['dateTime']['start'])) {
-            $this->startDate = Carbon::parse((string) $payload['dateTime']['start']);
+            $this->startDate = new \DateTimeImmutable((string) $payload['dateTime']['start']);
         }
 
         $this->logo = $this->hydrateImage($payload, 'logo');

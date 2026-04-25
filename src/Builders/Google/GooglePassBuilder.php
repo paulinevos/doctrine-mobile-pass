@@ -2,8 +2,9 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google;
 
-use Illuminate\Support\Str;
 use RuntimeException;
+use Symfony\Component\Uid\Uuid;
+use function Symfony\Component\String\u;
 use Vos\DoctrineMobilePass\Actions\Google\CreateGoogleObjectAction;
 use Vos\DoctrineMobilePass\Builders\Apple\Entities\Barcode;
 use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassObjectValidator;
@@ -48,7 +49,11 @@ abstract class GooglePassBuilder
 
     public static function name(): string
     {
-        return Str::snake(Str::replaceLast('PassBuilder', '', class_basename(static::class)));
+        $base = basename(str_replace('\\', '/', static::class));
+        $pos = strrpos($base, 'PassBuilder');
+        $stripped = $pos !== false ? substr($base, 0, $pos) : $base;
+
+        return u($stripped)->snake()->toString();
     }
 
     public function platform(): Platform
@@ -98,7 +103,7 @@ abstract class GooglePassBuilder
 
     public function objectId(): string
     {
-        $this->objectSuffix ??= (string) Str::uuid();
+        $this->objectSuffix ??= Uuid::v4()->toRfc4122();
 
         return GoogleCredentials::issuerId().'.'.$this->objectSuffix;
     }
@@ -195,4 +200,5 @@ abstract class GooglePassBuilder
     {
         return array_filter($values, fn ($value) => $value !== null && $value !== []);
     }
+
 }

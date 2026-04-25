@@ -2,14 +2,13 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google;
 
-use Carbon\Carbon;
 use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
 use Vos\DoctrineMobilePass\Builders\Google\Validators\BoardingClassValidator;
 use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassClassValidator;
 
 class BoardingPassClass extends GooglePassClass
 {
-    protected ?Carbon $localScheduledDepartureDateTime = null;
+    protected ?\DateTimeInterface $localScheduledDepartureDateTime = null;
 
     protected ?string $airlineCode = null;
 
@@ -33,7 +32,7 @@ class BoardingPassClass extends GooglePassClass
         return new BoardingClassValidator;
     }
 
-    public function setLocalScheduledDepartureDateTime(Carbon $dateTime): self
+    public function setLocalScheduledDepartureDateTime(\DateTimeInterface $dateTime): self
     {
         $this->localScheduledDepartureDateTime = $dateTime;
 
@@ -102,7 +101,7 @@ class BoardingPassClass extends GooglePassClass
         return $this->filterEmpty(
             [
             'issuerName' => $this->issuerName,
-            'localScheduledDepartureDateTime' => $this->localScheduledDepartureDateTime?->toIso8601String(),
+            'localScheduledDepartureDateTime' => $this->localScheduledDepartureDateTime?->format(\DateTimeInterface::ATOM),
             'flightHeader' => $flightHeader,
             'origin' => $this->originAirportCode ? ['airportIataCode' => $this->originAirportCode] : null,
             'destination' => $this->destinationAirportCode ? ['airportIataCode' => $this->destinationAirportCode] : null,
@@ -122,7 +121,7 @@ class BoardingPassClass extends GooglePassClass
         $this->hydrateCommonFields($payload);
 
         if (isset($payload['localScheduledDepartureDateTime'])) {
-            $this->localScheduledDepartureDateTime = Carbon::parse((string) $payload['localScheduledDepartureDateTime']);
+            $this->localScheduledDepartureDateTime = new \DateTimeImmutable((string) $payload['localScheduledDepartureDateTime']);
         }
 
         if (isset($payload['flightHeader']['carrier']['airlineCode'])) {
