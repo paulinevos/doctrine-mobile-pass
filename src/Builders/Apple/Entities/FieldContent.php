@@ -2,7 +2,6 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
 use Vos\DoctrineMobilePass\Enums\DataDetectorType;
 use Vos\DoctrineMobilePass\Enums\DateType;
 use Vos\DoctrineMobilePass\Enums\NumberStyleType;
@@ -14,7 +13,7 @@ use Vos\DoctrineMobilePass\Enums\TimeStyleType;
  *
  * https://developer.apple.com/documentation/walletpasses/passfieldcontent
  */
-class FieldContent implements Arrayable
+class FieldContent
 {
     public ?string $attributedValue = null;
 

@@ -2,9 +2,7 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
-
-class Price implements Arrayable
+class Price
 {
     public function __construct(
         public ?string $amount = null,

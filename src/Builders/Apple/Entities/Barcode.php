@@ -2,10 +2,9 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
 use Vos\DoctrineMobilePass\Enums\BarcodeType;
 
-class Barcode implements Arrayable
+class Barcode
 {
     public ?string $altText = null;
 

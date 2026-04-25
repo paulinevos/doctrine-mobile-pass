@@ -2,9 +2,7 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
-
-class LocalizedString implements Arrayable
+class LocalizedString
 {
     /** @var array<int, array{language: string, value: string}> */
     protected array $translations = [];

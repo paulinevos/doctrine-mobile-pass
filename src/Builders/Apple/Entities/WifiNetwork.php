@@ -2,9 +2,7 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
-
-class WifiNetwork implements Arrayable
+class WifiNetwork
 {
     public function __construct(
         public string $ssid,

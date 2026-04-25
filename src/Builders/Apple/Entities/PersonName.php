@@ -2,9 +2,7 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
-
-class PersonName implements Arrayable
+class PersonName
 {
     public function __construct(
         public ?string $familyName = null,
