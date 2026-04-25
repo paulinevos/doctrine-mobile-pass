@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Events;
+namespace Vos\DoctrineMobilePass\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 

@@ -1,10 +1,8 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
-
-class Seat implements Arrayable
+class Seat
 {
     public function __construct(
         public ?string $description,

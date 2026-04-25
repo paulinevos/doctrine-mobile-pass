@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google;
+namespace Vos\DoctrineMobilePass\Builders\Google;
 
 use Carbon\Carbon;
-use Spatie\LaravelMobilePass\Builders\Google\Entities\Image;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\BoardingClassValidator;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GooglePassClassValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\BoardingClassValidator;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassClassValidator;
 
 class BoardingPassClass extends GooglePassClass
 {

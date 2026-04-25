@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Http;
-use Spatie\LaravelMobilePass\Builders\Google\LoyaltyPassBuilder;
-use Spatie\LaravelMobilePass\Enums\BarcodeType;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Tests\TestSupport\Google\GoogleFixtures;
+use Vos\DoctrineMobilePass\Builders\Google\LoyaltyPassBuilder;
+use Vos\DoctrineMobilePass\Enums\BarcodeType;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Tests\TestSupport\Google\GoogleFixtures;
 
 beforeEach(function () {
     config()->set('mobile-pass.google.service_account_key_path', GoogleFixtures::serviceAccountPath());

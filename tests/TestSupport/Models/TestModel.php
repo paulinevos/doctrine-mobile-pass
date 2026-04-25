@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\TestSupport\Models;
+namespace Vos\DoctrineMobilePass\Tests\TestSupport\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\LaravelMobilePass\Models\Concerns\HasMobilePasses;
+use Vos\DoctrineMobilePass\Models\Concerns\HasMobilePasses;
 
 class TestModel extends Model
 {

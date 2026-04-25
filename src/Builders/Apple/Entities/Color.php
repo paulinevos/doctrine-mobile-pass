@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
 use Stringable;
 

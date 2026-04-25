@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Validators;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Validators;
 
 class CouponApplePassValidator extends ApplePassValidator
 {

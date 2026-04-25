@@ -1,5 +1,5 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Exceptions;
+namespace Vos\DoctrineMobilePass\Exceptions;
 
 interface MobilePassException {}

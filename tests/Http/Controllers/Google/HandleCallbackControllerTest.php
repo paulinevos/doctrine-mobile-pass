@@ -2,12 +2,12 @@
 
 use Firebase\JWT\JWT;
 use Illuminate\Support\Facades\Event;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Events\MobilePassAdded;
-use Spatie\LaravelMobilePass\Events\MobilePassRemoved;
-use Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Tests\TestSupport\Google\GoogleFixtures;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Events\MobilePassAdded;
+use Vos\DoctrineMobilePass\Events\MobilePassRemoved;
+use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Tests\TestSupport\Google\GoogleFixtures;
 
 beforeEach(function () {
     config()->set('mobile-pass.google.callback_signing_key', GoogleFixtures::publicKey());

@@ -117,7 +117,7 @@ If you've opted into the queue (see the [Updating a pass](basic-usage/updating-a
 
 ```php
 use Illuminate\Support\Facades\Queue;
-use Spatie\LaravelMobilePass\Jobs\PushPassUpdateJob;
+use Vos\DoctrineMobilePass\Jobs\PushPassUpdateJob;
 
 Queue::fake();
 

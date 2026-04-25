@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Support\Apple\PkPassReader;
+use Vos\DoctrineMobilePass\Support\Apple\PkPassReader;
 
 beforeEach(function () {
     $this->passkeyFile = getTestSupportPath('passes/PkPassReader/valid.pkpass');

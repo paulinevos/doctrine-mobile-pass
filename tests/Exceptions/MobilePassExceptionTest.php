@@ -1,16 +1,16 @@
 <?php
 
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Exceptions\AppleWalletRequestFailed;
-use Spatie\LaravelMobilePass\Exceptions\CannotDownload;
-use Spatie\LaravelMobilePass\Exceptions\GoogleWalletRequestFailed;
-use Spatie\LaravelMobilePass\Exceptions\ImageNotFound;
-use Spatie\LaravelMobilePass\Exceptions\InvalidCertificate;
-use Spatie\LaravelMobilePass\Exceptions\InvalidConfig;
-use Spatie\LaravelMobilePass\Exceptions\InvalidPass;
-use Spatie\LaravelMobilePass\Exceptions\MobilePassException;
-use Spatie\LaravelMobilePass\Exceptions\PlatformDoesntSupport;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Exceptions\AppleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Exceptions\CannotDownload;
+use Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Exceptions\ImageNotFound;
+use Vos\DoctrineMobilePass\Exceptions\InvalidCertificate;
+use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
+use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
+use Vos\DoctrineMobilePass\Exceptions\MobilePassException;
+use Vos\DoctrineMobilePass\Exceptions\PlatformDoesntSupport;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 it('lets you catch every package exception through the MobilePassException interface', function (string $exceptionClass) {
     expect(is_subclass_of($exceptionClass, MobilePassException::class))->toBeTrue();

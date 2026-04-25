@@ -43,7 +43,7 @@ $mobilePass->builder()
 Google passes don't use `updateField`. Instead, update the relevant keys on the `MobilePass` model's `content` array and save the model. The package notices the update and pushes the change to Google's Wallet API. Google takes care of notifying the device:
 
 ```php
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 $mobilePass = MobilePass::find($id);
 

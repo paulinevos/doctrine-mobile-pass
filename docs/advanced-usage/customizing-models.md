@@ -9,7 +9,7 @@ Here's how you'd turn on the `SoftDeletes` trait on a model:
 
 ```php
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class CustomMobilePass extends MobilePass
 {

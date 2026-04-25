@@ -1,10 +1,8 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
-
-class Location implements Arrayable
+class Location
 {
     public function __construct(
         public float $latitude,

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google\Validators;
+namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
-use Spatie\LaravelMobilePass\Exceptions\InvalidPass;
+use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 abstract class GooglePassObjectValidator
 {

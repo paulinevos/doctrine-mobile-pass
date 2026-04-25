@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Enums;
+namespace Vos\DoctrineMobilePass\Enums;
 
 enum DataDetectorType: string
 {

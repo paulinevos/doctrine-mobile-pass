@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google\Validators;
+namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
 class GenericClassValidator extends GooglePassClassValidator
 {

@@ -12,8 +12,8 @@ The package gives you two ways to provide an image.
 If your images already live on a CDN, S3 bucket, or any public host, hand Google the URL directly:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\Entities\Image;
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassClass;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassClass;
 
 EventTicketPassClass::make('beatles-shea-1965')
     ->setLogoUrl('https://cdn.example.com/beatles-logo.png')
@@ -28,7 +28,7 @@ Every Class builder exposes `setLogoUrl()`, `setHeroImageUrl()`, and friends. Un
 If you want to point at a file on your server, reach for `Image::fromLocalPath()`:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
 
 $image = Image::fromLocalPath(public_path('images/ticket-hero.png'));
 ```

@@ -51,7 +51,7 @@ See Apple's [Pass Design and Creation](https://developer.apple.com/library/archi
 Google doesn't ship image bytes. You give the Class a URL, and Google fetches it when it renders the pass. The URL has to be publicly reachable over HTTPS. The methods live on the Class, not on the per-attendee Builder:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassClass;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassClass;
 
 EventTicketPassClass::make('beatles-shea-1965')
     // ...

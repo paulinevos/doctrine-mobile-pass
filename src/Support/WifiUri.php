@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Support;
+namespace Vos\DoctrineMobilePass\Support;
 
 class WifiUri
 {

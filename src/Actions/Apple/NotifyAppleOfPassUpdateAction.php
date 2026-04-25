@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Actions\Apple;
+namespace Vos\DoctrineMobilePass\Actions\Apple;
 
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Spatie\LaravelMobilePass\Exceptions\AppleWalletRequestFailed;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Exceptions\AppleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class NotifyAppleOfPassUpdateAction
 {

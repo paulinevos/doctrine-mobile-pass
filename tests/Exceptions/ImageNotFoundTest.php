@@ -1,7 +1,7 @@
 <?php
 
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Image;
-use Spatie\LaravelMobilePass\Exceptions\ImageNotFound;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Image;
+use Vos\DoctrineMobilePass\Exceptions\ImageNotFound;
 
 it('throws ImageNotFound when the file does not exist', function () {
     Image::make('/tmp/definitely-not-here-'.uniqid().'.png');

@@ -1,17 +1,17 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple;
+namespace Vos\DoctrineMobilePass\Builders\Apple;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Image;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Location;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\PersonName;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Seat;
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\ApplePassValidator;
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\BoardingApplePassValidator;
-use Spatie\LaravelMobilePass\Enums\PassType;
-use Spatie\LaravelMobilePass\Enums\TransitType;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Location;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\PersonName;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Seat;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\ApplePassValidator;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\BoardingApplePassValidator;
+use Vos\DoctrineMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Enums\TransitType;
 
 abstract class BoardingPassBuilder extends ApplePassBuilder
 {

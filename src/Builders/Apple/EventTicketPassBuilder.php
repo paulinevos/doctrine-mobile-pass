@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple;
+namespace Vos\DoctrineMobilePass\Builders\Apple;
 
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\ApplePassValidator;
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\EventTicketApplePassValidator;
-use Spatie\LaravelMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\ApplePassValidator;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\EventTicketApplePassValidator;
+use Vos\DoctrineMobilePass\Enums\PassType;
 
 class EventTicketPassBuilder extends ApplePassBuilder
 {

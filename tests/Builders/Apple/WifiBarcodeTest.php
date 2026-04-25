@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Builders\Apple\GenericPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\GenericPassBuilder;
 
 it('sets a Wi-Fi QR barcode from ssid and password', function () {
     $data = GenericPassBuilder::make()

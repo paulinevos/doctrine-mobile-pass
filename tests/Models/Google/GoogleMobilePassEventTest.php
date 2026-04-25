@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent;
+use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
 
 it('filters by event type using scopes', function () {
     GoogleMobilePassEvent::factory()->create(['event_type' => 'save']);

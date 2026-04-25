@@ -1,11 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Google\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
 use RuntimeException;
 
-class Image implements Arrayable
+class Image
 {
     protected function __construct(
         public readonly ?string $url = null,

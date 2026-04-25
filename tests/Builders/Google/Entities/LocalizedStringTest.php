@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Builders\Google\Entities\LocalizedString;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\LocalizedString;
 
 it('builds a default-value localized string', function () {
     $localized = LocalizedString::of('The Eras Tour');

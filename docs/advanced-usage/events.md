@@ -7,7 +7,7 @@ The package dispatches Laravel events at key moments in the pass lifecycle so yo
 
 ## MobilePassAdded
 
-The `Spatie\LaravelMobilePass\Events\MobilePassAdded` event fires when a user adds the pass to their wallet. It covers both platforms:
+The `Vos\DoctrineMobilePass\Events\MobilePassAdded` event fires when a user adds the pass to their wallet. It covers both platforms:
 
 - Apple, when an iPhone calls the register-device endpoint after the user taps Add in Wallet. The event fires once per new `(device, pass)` registration. Re-registrations of the same device don't re-fire.
 - Google, when Google sends a `save` callback for the pass.
@@ -17,7 +17,7 @@ The event carries the `MobilePass` model. If you need to branch on platform, cal
 ```php
 namespace App\Listeners;
 
-use Spatie\LaravelMobilePass\Events\MobilePassAdded;
+use Vos\DoctrineMobilePass\Events\MobilePassAdded;
 
 class TrackPassInstalls
 {
@@ -34,7 +34,7 @@ For Apple passes this is your chance to record that a specific device has the pa
 
 ## MobilePassRemoved
 
-The `Spatie\LaravelMobilePass\Events\MobilePassRemoved` event fires when the user removes the pass from their wallet. Like the added event, it covers both platforms:
+The `Vos\DoctrineMobilePass\Events\MobilePassRemoved` event fires when the user removes the pass from their wallet. Like the added event, it covers both platforms:
 
 - Apple, when the device calls the unregister-device endpoint. The event fires once per deleted registration, so a pass removed from three devices fires three times.
 - Google, when Google sends a `del` callback.
@@ -44,7 +44,7 @@ Same payload shape:
 ```php
 namespace App\Listeners;
 
-use Spatie\LaravelMobilePass\Events\MobilePassRemoved;
+use Vos\DoctrineMobilePass\Events\MobilePassRemoved;
 
 class ReactToUninstall
 {
@@ -59,13 +59,13 @@ On Apple, a user can keep the pass on other devices after removing it from one, 
 
 ## AppleMobilePassLogsReceived
 
-The `Spatie\LaravelMobilePass\Events\AppleMobilePassLogsReceived` event fires when Apple posts error log entries to the package's log endpoint (`/passkit/v1/log`). Apple devices use this to report problems they hit while handling a pass.
+The `Vos\DoctrineMobilePass\Events\AppleMobilePassLogsReceived` event fires when Apple posts error log entries to the package's log endpoint (`/passkit/v1/log`). Apple devices use this to report problems they hit while handling a pass.
 
 ```php
 namespace App\Listeners;
 
 use Illuminate\Support\Facades\Log;
-use Spatie\LaravelMobilePass\Events\AppleMobilePassLogsReceived;
+use Vos\DoctrineMobilePass\Events\AppleMobilePassLogsReceived;
 
 class ForwardAppleWalletLogs
 {
@@ -86,10 +86,10 @@ Laravel 11+ auto-discovers listeners in `app/Listeners` by convention. If you've
 
 ```php
 protected $listen = [
-    \Spatie\LaravelMobilePass\Events\MobilePassAdded::class => [
+    \Vos\DoctrineMobilePass\Events\MobilePassAdded::class => [
         \App\Listeners\TrackPassInstalls::class,
     ],
-    \Spatie\LaravelMobilePass\Events\MobilePassRemoved::class => [
+    \Vos\DoctrineMobilePass\Events\MobilePassRemoved::class => [
         \App\Listeners\ReactToUninstall::class,
     ],
 ];

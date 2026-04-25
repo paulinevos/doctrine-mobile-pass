@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple;
+namespace Vos\DoctrineMobilePass\Builders\Apple;
 
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\ApplePassValidator;
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\GenericApplePassValidator;
-use Spatie\LaravelMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\ApplePassValidator;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\GenericApplePassValidator;
+use Vos\DoctrineMobilePass\Enums\PassType;
 
 class GenericPassBuilder extends ApplePassBuilder
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Support\Apple;
+namespace Vos\DoctrineMobilePass\Support\Apple;
 
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Response;

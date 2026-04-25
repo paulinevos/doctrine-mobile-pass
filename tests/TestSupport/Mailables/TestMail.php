@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\TestSupport\Mailables;
+namespace Vos\DoctrineMobilePass\Tests\TestSupport\Mailables;
 
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Support\Collection;
 use PHPUnit\Framework\Assert as PHPUnit;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class TestMail extends Mailable
 {

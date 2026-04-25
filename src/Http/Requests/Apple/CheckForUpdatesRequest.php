@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Requests\Apple;
+namespace Vos\DoctrineMobilePass\Http\Requests\Apple;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 class CheckForUpdatesRequest extends FormRequest
 {

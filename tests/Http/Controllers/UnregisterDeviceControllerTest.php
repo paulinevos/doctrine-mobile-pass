@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests\Http;
+namespace Vos\DoctrineMobilePass\Tests\Http;
 
 use Illuminate\Support\Facades\Event;
-use Spatie\LaravelMobilePass\Events\MobilePassRemoved;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassDevice;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Events\MobilePassRemoved;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassDevice;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
 
 it('deletes the registration', function () {
     $registration = AppleMobilePassRegistration::factory()->create();

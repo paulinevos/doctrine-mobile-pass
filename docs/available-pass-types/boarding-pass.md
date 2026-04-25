@@ -8,8 +8,8 @@ Boarding passes cover flights, trains, buses, and boats. Apple's `AirlinePassBui
 ## Apple
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\AirlinePassBuilder;
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Seat;
+use Vos\DoctrineMobilePass\Builders\Apple\AirlinePassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Seat;
 
 AirlinePassBuilder::make()
     ->setOrganizationName('Etihad')
@@ -27,8 +27,8 @@ AirlinePassBuilder::make()
 For non-airline transit (trains, boats, buses), `BoardingPassBuilder` is abstract. Subclass it yourself and set `$transitType` to whichever `TransitType` case fits:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\BoardingPassBuilder;
-use Spatie\LaravelMobilePass\Enums\TransitType;
+use Vos\DoctrineMobilePass\Builders\Apple\BoardingPassBuilder;
+use Vos\DoctrineMobilePass\Enums\TransitType;
 
 class TrainPassBuilder extends BoardingPassBuilder
 {
@@ -57,8 +57,8 @@ TrainPassBuilder::make()
 Google boarding passes are flight-specific. Declare the Class once per flight, then create an Object per passenger.
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\BoardingPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\BoardingPassClass;
+use Vos\DoctrineMobilePass\Builders\Google\BoardingPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\BoardingPassClass;
 
 // Once, per flight
 BoardingPassClass::make('lh123-2026-04-20')

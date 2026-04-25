@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Actions\Google;
+namespace Vos\DoctrineMobilePass\Actions\Google;
 
 use Illuminate\Http\Request;
-use Spatie\LaravelMobilePass\Events\MobilePassAdded;
-use Spatie\LaravelMobilePass\Events\MobilePassRemoved;
-use Spatie\LaravelMobilePass\Models\MobilePass;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Events\MobilePassAdded;
+use Vos\DoctrineMobilePass\Events\MobilePassRemoved;
+use Vos\DoctrineMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Support\Config;
 
 class HandleGoogleCallbackAction
 {

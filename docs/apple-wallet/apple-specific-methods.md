@@ -26,7 +26,7 @@ The file Apple Wallet downloads defaults to the pass's serial number. Pass a fri
 Record a monetary value on the pass with `setTotalPrice()`. Useful on event tickets and coupons where the price is part of the pass's identity.
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\Entities\Price;
+use Vos\DoctrineMobilePass\Builders\Apple\Entities\Price;
 
 $builder->setTotalPrice(Price::make(amount: '49.50', currencyCode: 'USD'));
 ```

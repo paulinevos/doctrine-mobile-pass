@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Validators;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Validators;
 
-use Spatie\LaravelMobilePass\Exceptions\InvalidPass;
+use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 abstract class ApplePassValidator
 {

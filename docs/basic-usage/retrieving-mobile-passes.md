@@ -22,7 +22,7 @@ $user->firstGooglePass();
 Both `firstApplePass` and `firstGooglePass` accept an optional `PassType` to narrow further:
 
 ```php
-use Spatie\LaravelMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Enums\PassType;
 
 $user->firstApplePass(PassType::EventTicket);
 ```
@@ -44,8 +44,8 @@ $mobilePass = User::first()->firstMobilePass();
 The `firstMobilePass` method takes an optional `PassType` to scope to a specific kind of pass, an optional `Platform` to cover both axes at once, and a `filter` closure for anything more custom:
 
 ```php
-use Spatie\LaravelMobilePass\Enums\PassType;
-use Spatie\LaravelMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Enums\Platform;
 
 $couponPass = User::first()->firstMobilePass(PassType::Coupon);
 

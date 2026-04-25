@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Spatie\LaravelMobilePass\Http\Controllers\Apple\CheckForUpdatesController;
-use Spatie\LaravelMobilePass\Http\Controllers\Apple\DownloadApplePassController;
-use Spatie\LaravelMobilePass\Http\Controllers\Apple\GetAssociatedSerialsForDeviceController;
-use Spatie\LaravelMobilePass\Http\Controllers\Apple\MobilePassLogController;
-use Spatie\LaravelMobilePass\Http\Controllers\Apple\RegisterDeviceController;
-use Spatie\LaravelMobilePass\Http\Controllers\Apple\UnregisterDeviceController;
-use Spatie\LaravelMobilePass\Http\Controllers\Google\HandleCallbackController;
-use Spatie\LaravelMobilePass\Http\Middleware\VerifyApplePasskitRequest;
-use Spatie\LaravelMobilePass\Http\Middleware\VerifyGoogleCallbackRequest;
+use Vos\DoctrineMobilePass\Http\Controllers\Apple\CheckForUpdatesController;
+use Vos\DoctrineMobilePass\Http\Controllers\Apple\DownloadApplePassController;
+use Vos\DoctrineMobilePass\Http\Controllers\Apple\GetAssociatedSerialsForDeviceController;
+use Vos\DoctrineMobilePass\Http\Controllers\Apple\MobilePassLogController;
+use Vos\DoctrineMobilePass\Http\Controllers\Apple\RegisterDeviceController;
+use Vos\DoctrineMobilePass\Http\Controllers\Apple\UnregisterDeviceController;
+use Vos\DoctrineMobilePass\Http\Controllers\Google\HandleCallbackController;
+use Vos\DoctrineMobilePass\Http\Middleware\VerifyApplePasskitRequest;
+use Vos\DoctrineMobilePass\Http\Middleware\VerifyGoogleCallbackRequest;
 
 Route::macro('mobilePass', function (string $prefix = '') {
     Route::prefix("{$prefix}/passkit/v1")->group(function () {

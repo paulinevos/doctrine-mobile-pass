@@ -1,20 +1,19 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple\Entities;
+namespace Vos\DoctrineMobilePass\Builders\Apple\Entities;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Spatie\LaravelMobilePass\Enums\DataDetectorType;
-use Spatie\LaravelMobilePass\Enums\DateType;
-use Spatie\LaravelMobilePass\Enums\NumberStyleType;
-use Spatie\LaravelMobilePass\Enums\TextAlignmentType;
-use Spatie\LaravelMobilePass\Enums\TimeStyleType;
+use Vos\DoctrineMobilePass\Enums\DataDetectorType;
+use Vos\DoctrineMobilePass\Enums\DateType;
+use Vos\DoctrineMobilePass\Enums\NumberStyleType;
+use Vos\DoctrineMobilePass\Enums\TextAlignmentType;
+use Vos\DoctrineMobilePass\Enums\TimeStyleType;
 
 /**
  * @internal Use the `add*Field` and `updateField` methods on the Apple builder.
  *
  * https://developer.apple.com/documentation/walletpasses/passfieldcontent
  */
-class FieldContent implements Arrayable
+class FieldContent
 {
     public ?string $attributedValue = null;
 

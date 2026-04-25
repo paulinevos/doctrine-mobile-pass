@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Queue;
-use Spatie\LaravelMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction;
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Jobs\PushPassUpdateJob;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Actions\Apple\NotifyAppleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Actions\Google\NotifyGoogleOfPassUpdateAction;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Jobs\PushPassUpdateJob;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 it('runs sync when no queue connection is configured', function () {
     config()->set('mobile-pass.queue.connection', null);

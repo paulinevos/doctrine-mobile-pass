@@ -8,7 +8,7 @@ The package ships a `PkPassReader` class that reads Apple passes, either from a 
 Here's how you instantiate it:
 
 ```php
-use Spatie\LaravelMobilePass\Support\Apple\PkPassReader;
+use Vos\DoctrineMobilePass\Support\Apple\PkPassReader;
 
 // from file
 $reader = PkPassReader::fromFile('path/to/pass.pkpass');

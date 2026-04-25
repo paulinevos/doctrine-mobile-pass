@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Controllers\Apple;
+namespace Vos\DoctrineMobilePass\Http\Controllers\Apple;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Spatie\LaravelMobilePass\Http\Requests\Apple\CheckForUpdatesRequest;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Http\Requests\Apple\CheckForUpdatesRequest;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 /**
  * Getting the Latest Version of a Pass

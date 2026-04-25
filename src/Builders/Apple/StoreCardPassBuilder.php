@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple;
+namespace Vos\DoctrineMobilePass\Builders\Apple;
 
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\ApplePassValidator;
-use Spatie\LaravelMobilePass\Builders\Apple\Validators\StoreCardApplePassValidator;
-use Spatie\LaravelMobilePass\Enums\PassType;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\ApplePassValidator;
+use Vos\DoctrineMobilePass\Builders\Apple\Validators\StoreCardApplePassValidator;
+use Vos\DoctrineMobilePass\Enums\PassType;
 
 class StoreCardPassBuilder extends ApplePassBuilder
 {

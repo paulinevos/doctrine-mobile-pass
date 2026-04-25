@@ -16,7 +16,7 @@ Every Google pass type has a matching Class. You create one by calling `make()` 
 Here's the Beatles concert Class, declared once per event:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassClass;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassClass;
 
 EventTicketPassClass::make('beatles-shea-1965')
     ->setIssuerName('Fab Four Promotions')

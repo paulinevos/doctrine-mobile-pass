@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Exceptions;
+namespace Vos\DoctrineMobilePass\Exceptions;
 
 use Illuminate\Validation\ValidationException;
 

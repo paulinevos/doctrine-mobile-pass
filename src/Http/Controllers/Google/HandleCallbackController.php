@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Controllers\Google;
+namespace Vos\DoctrineMobilePass\Http\Controllers\Google;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Spatie\LaravelMobilePass\Actions\Google\HandleGoogleCallbackAction;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Actions\Google\HandleGoogleCallbackAction;
+use Vos\DoctrineMobilePass\Support\Config;
 
 class HandleCallbackController extends Controller
 {

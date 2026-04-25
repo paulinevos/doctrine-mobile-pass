@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Builders\Google\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
 
 it('wraps an https URL verbatim', function () {
     $image = Image::fromUrl('https://cdn.example.com/logo.png');

@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Actions\Apple;
+namespace Vos\DoctrineMobilePass\Actions\Apple;
 
-use Spatie\LaravelMobilePass\Events\MobilePassRemoved;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Support\Config;
+use Vos\DoctrineMobilePass\Events\MobilePassRemoved;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Support\Config;
 
 class UnregisterDeviceAction
 {

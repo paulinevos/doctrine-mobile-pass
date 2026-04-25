@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelMobilePass\Support\WifiUri;
+use Vos\DoctrineMobilePass\Support\WifiUri;
 
 it('builds a WPA uri with ssid and password', function () {
     expect(WifiUri::build('Spatie Guest', 'welcome'))

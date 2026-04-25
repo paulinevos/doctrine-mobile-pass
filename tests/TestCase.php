@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Tests;
+namespace Vos\DoctrineMobilePass\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\Blueprint;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\LaravelMobilePass\MobilePassServiceProvider;
+use Vos\DoctrineMobilePass\MobilePassServiceProvider;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
 use Spatie\TestTime\TestTime;
 

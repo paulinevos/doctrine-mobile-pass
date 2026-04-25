@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Google;
+namespace Vos\DoctrineMobilePass\Builders\Google;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Spatie\LaravelMobilePass\Builders\Google\Entities\Image;
-use Spatie\LaravelMobilePass\Builders\Google\Entities\LocalizedString;
-use Spatie\LaravelMobilePass\Builders\Google\Validators\GooglePassClassValidator;
-use Spatie\LaravelMobilePass\Exceptions\GoogleWalletRequestFailed;
-use Spatie\LaravelMobilePass\Support\Google\GoogleCredentials;
-use Spatie\LaravelMobilePass\Support\Google\GoogleWalletClient;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\Image;
+use Vos\DoctrineMobilePass\Builders\Google\Entities\LocalizedString;
+use Vos\DoctrineMobilePass\Builders\Google\Validators\GooglePassClassValidator;
+use Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Support\Google\GoogleCredentials;
+use Vos\DoctrineMobilePass\Support\Google\GoogleWalletClient;
 
 /**
  * @phpstan-consistent-constructor

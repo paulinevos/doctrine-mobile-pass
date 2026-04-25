@@ -8,7 +8,7 @@ Loyalty cards cover membership programs, frequent-buyer cards, and stamp cards. 
 ## Apple
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Apple\StoreCardPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Apple\StoreCardPassBuilder;
 
 StoreCardPassBuilder::make()
     ->setOrganizationName('Spatie Rewards')
@@ -25,8 +25,8 @@ StoreCardPassBuilder::make()
 Declare the Class once per program (the brand, the colors, the labels), then create an Object per member.
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\LoyaltyPassBuilder;
-use Spatie\LaravelMobilePass\Builders\Google\LoyaltyPassClass;
+use Vos\DoctrineMobilePass\Builders\Google\LoyaltyPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\LoyaltyPassClass;
 
 // Once, per program
 LoyaltyPassClass::make('spatie-rewards')

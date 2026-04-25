@@ -10,7 +10,7 @@ Every Google builder extends `GooglePassBuilder`, which handles the bits of a pa
 Every Google pass Object has to point at a Class. Call `setClass()` with the suffix you used when declaring it:
 
 ```php
-use Spatie\LaravelMobilePass\Builders\Google\EventTicketPassBuilder;
+use Vos\DoctrineMobilePass\Builders\Google\EventTicketPassBuilder;
 
 EventTicketPassBuilder::make()
     ->setClass('beatles-shea-1965')

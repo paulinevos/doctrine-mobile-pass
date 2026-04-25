@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Builders\Apple;
+namespace Vos\DoctrineMobilePass\Builders\Apple;
 
-use Spatie\LaravelMobilePass\Enums\TransitType;
+use Vos\DoctrineMobilePass\Enums\TransitType;
 
 class AirlinePassBuilder extends BoardingPassBuilder
 {

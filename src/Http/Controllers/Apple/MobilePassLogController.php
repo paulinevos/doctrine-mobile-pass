@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Controllers\Apple;
+namespace Vos\DoctrineMobilePass\Http\Controllers\Apple;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Spatie\LaravelMobilePass\Events\AppleMobilePassLogsReceived;
+use Vos\DoctrineMobilePass\Events\AppleMobilePassLogsReceived;
 
 /**
  * Logging Errors

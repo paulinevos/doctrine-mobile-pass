@@ -1,9 +1,9 @@
 <?php
 
-use Spatie\LaravelMobilePass\Enums\Platform;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
-use Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Enums\Platform;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 it('isCurrentlySavedToGoogleWallet returns true when latest event is save', function () {
     $pass = MobilePass::factory()->create(['platform' => Platform::Google]);

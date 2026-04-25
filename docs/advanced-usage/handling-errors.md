@@ -5,10 +5,10 @@ weight: 1
 
 The package throws a handful of typed exceptions so you can recover from the common failure modes without parsing error messages.
 
-Every package-specific exception implements the `Spatie\LaravelMobilePass\Exceptions\MobilePassException` marker interface, so you can catch anything this package threw with a single catch clause if that's all you care about:
+Every package-specific exception implements the `Vos\DoctrineMobilePass\Exceptions\MobilePassException` marker interface, so you can catch anything this package threw with a single catch clause if that's all you care about:
 
 ```php
-use Spatie\LaravelMobilePass\Exceptions\MobilePassException;
+use Vos\DoctrineMobilePass\Exceptions\MobilePassException;
 
 try {
     // something that touches the package
@@ -21,10 +21,10 @@ Each exception class below also implements this interface; the sections that fol
 
 ## Validation errors
 
-Every builder runs a Laravel validator before it hands a pass off to Apple or Google. If a required field is missing, or a value has the wrong shape, `save()` throws a `Spatie\LaravelMobilePass\Exceptions\InvalidPass`.
+Every builder runs a Laravel validator before it hands a pass off to Apple or Google. If a required field is missing, or a value has the wrong shape, `save()` throws a `Vos\DoctrineMobilePass\Exceptions\InvalidPass`.
 
 ```php
-use Spatie\LaravelMobilePass\Exceptions\InvalidPass;
+use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 try {
     EventTicketPassBuilder::make()
@@ -45,7 +45,7 @@ try {
 
 ## Configuration errors
 
-`Spatie\LaravelMobilePass\Exceptions\InvalidConfig` is thrown when the `mobile-pass` config file is missing something the package needs. The most common reasons:
+`Vos\DoctrineMobilePass\Exceptions\InvalidConfig` is thrown when the `mobile-pass` config file is missing something the package needs. The most common reasons:
 
 - `InvalidConfig::missingGoogleCredentials()`: no Google service account key is configured. Set either `MOBILE_PASS_GOOGLE_KEY` (raw JSON or base64-encoded JSON) or `MOBILE_PASS_GOOGLE_KEY_PATH`.
 - `InvalidConfig::webserviceHostMustBeHttps($host)`: `mobile-pass.apple.webservice.host` is set to a non-HTTPS URL. Apple rejects passes whose `webServiceURL` isn't HTTPS. Leave the value empty for local development over `http://`.
@@ -55,7 +55,7 @@ These surface at runtime the first time the package tries to use the misconfigur
 
 ## Platform mismatches
 
-The `Spatie\LaravelMobilePass\Exceptions\PlatformDoesntSupport` exception fires when you call a method that doesn't make sense for the pass's platform.
+The `Vos\DoctrineMobilePass\Exceptions\PlatformDoesntSupport` exception fires when you call a method that doesn't make sense for the pass's platform.
 
 Calling `$mobilePass->updateField(...)` on a Google pass throws `PlatformDoesntSupport::cannotUpdateFields(Platform::Google)`. Use the Google builder's `content`-patching flow instead (see [Updating a pass](basic-usage/updating-a-pass)).
 
@@ -63,14 +63,14 @@ It's the kind of mistake you want to catch during development. Let it bubble to 
 
 ## Download errors
 
-Calling `$mobilePass->download()` on a Google pass throws `Spatie\LaravelMobilePass\Exceptions\CannotDownload::wrongPlatform($mobilePass)`. The same exception fires if a Google pass is requested through Apple's download route. Google passes aren't files; they live on Google's servers and users reach them through a `pay.google.com` save URL.
+Calling `$mobilePass->download()` on a Google pass throws `Vos\DoctrineMobilePass\Exceptions\CannotDownload::wrongPlatform($mobilePass)`. The same exception fires if a Google pass is requested through Apple's download route. Google passes aren't files; they live on Google's servers and users reach them through a `pay.google.com` save URL.
 
 ## Google Wallet request failures
 
-Every call to Google's Wallet API (creating a Class, creating an Object, fetching or retiring) goes through a typed failure. The `Spatie\LaravelMobilePass\Exceptions\GoogleWalletRequestFailed` exception carries the original HTTP response so you can inspect what Google actually said:
+Every call to Google's Wallet API (creating a Class, creating an Object, fetching or retiring) goes through a typed failure. The `Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed` exception carries the original HTTP response so you can inspect what Google actually said:
 
 ```php
-use Spatie\LaravelMobilePass\Exceptions\GoogleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed;
 
 try {
     EventTicketPassClass::make('duplicate-id')
@@ -89,10 +89,10 @@ The common causes are duplicate Class IDs, malformed payloads, or an expired ser
 
 ## Apple Wallet request failures
 
-The package notifies Apple Wallet of pass updates over APNs. If Apple responds with a non-2xx status (except 410, which signals a stale registration that the package cleans up automatically), the push action throws `Spatie\LaravelMobilePass\Exceptions\AppleWalletRequestFailed`. The exception has the same shape as its Google counterpart:
+The package notifies Apple Wallet of pass updates over APNs. If Apple responds with a non-2xx status (except 410, which signals a stale registration that the package cleans up automatically), the push action throws `Vos\DoctrineMobilePass\Exceptions\AppleWalletRequestFailed`. The exception has the same shape as its Google counterpart:
 
 ```php
-use Spatie\LaravelMobilePass\Exceptions\AppleWalletRequestFailed;
+use Vos\DoctrineMobilePass\Exceptions\AppleWalletRequestFailed;
 
 try {
     $mobilePass->updateField('seat', '13A');
@@ -111,10 +111,10 @@ If APNs itself can't be reached (DNS, network, TLS), Laravel's HTTP client raise
 
 ## Certificate signing failures
 
-`.pkpass` generation uses the underlying `pkpass/pkpass` library. When it can't load or use the pass-signing certificate (wrong path, wrong password, expired cert, bad PKCS12 format), the package catches the raw `PKPass\PKPassException` and re-throws it as `Spatie\LaravelMobilePass\Exceptions\InvalidCertificate`:
+`.pkpass` generation uses the underlying `pkpass/pkpass` library. When it can't load or use the pass-signing certificate (wrong path, wrong password, expired cert, bad PKCS12 format), the package catches the raw `PKPass\PKPassException` and re-throws it as `Vos\DoctrineMobilePass\Exceptions\InvalidCertificate`:
 
 ```php
-use Spatie\LaravelMobilePass\Exceptions\InvalidCertificate;
+use Vos\DoctrineMobilePass\Exceptions\InvalidCertificate;
 
 try {
     $mobilePass->generate();
@@ -127,10 +127,10 @@ The exception's message names the env vars you should check (`MOBILE_PASS_APPLE_
 
 ## Missing image files
 
-Apple builders read their images off disk. If you hand `setLogoImage()`, `setIconImage()`, and friends a path that doesn't exist, the builder throws `Spatie\LaravelMobilePass\Exceptions\ImageNotFound` immediately (not at `save()` time), so a typo surfaces right at the call site:
+Apple builders read their images off disk. If you hand `setLogoImage()`, `setIconImage()`, and friends a path that doesn't exist, the builder throws `Vos\DoctrineMobilePass\Exceptions\ImageNotFound` immediately (not at `save()` time), so a typo surfaces right at the call site:
 
 ```php
-use Spatie\LaravelMobilePass\Exceptions\ImageNotFound;
+use Vos\DoctrineMobilePass\Exceptions\ImageNotFound;
 
 try {
     $builder->setLogoImage('/no/such/file.png');

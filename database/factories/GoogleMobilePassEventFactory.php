@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Database\Factories;
+namespace Vos\DoctrineMobilePass\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Spatie\LaravelMobilePass\Models\Google\GoogleMobilePassEvent;
-use Spatie\LaravelMobilePass\Models\MobilePass;
+use Vos\DoctrineMobilePass\Models\Google\GoogleMobilePassEvent;
+use Vos\DoctrineMobilePass\Models\MobilePass;
 
 /**
  * @extends Factory<GoogleMobilePassEvent>

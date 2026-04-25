@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Event;
-use Spatie\LaravelMobilePass\Events\AppleMobilePassLogsReceived;
+use Vos\DoctrineMobilePass\Events\AppleMobilePassLogsReceived;
 
 it('will fire an event when logs are received', function () {
     Event::fake();

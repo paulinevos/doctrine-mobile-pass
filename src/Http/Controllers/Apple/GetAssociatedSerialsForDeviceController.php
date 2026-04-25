@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelMobilePass\Http\Controllers\Apple;
+namespace Vos\DoctrineMobilePass\Http\Controllers\Apple;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Collection;
-use Spatie\LaravelMobilePass\Http\Requests\Apple\GetAssociatedSerialsForDeviceRequest;
-use Spatie\LaravelMobilePass\Models\Apple\AppleMobilePassRegistration;
+use Vos\DoctrineMobilePass\Http\Requests\Apple\GetAssociatedSerialsForDeviceRequest;
+use Vos\DoctrineMobilePass\Models\Apple\AppleMobilePassRegistration;
 
 /**
  * Getting the Serial Numbers for Passes Associated with a Device
