@@ -2,18 +2,20 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class BoardingObjectValidator extends GooglePassObjectValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
         return [
-            'id' => ['required', 'string'],
-            'classId' => ['required', 'string'],
-            'state' => ['nullable', 'string'],
-            'passengerName' => ['nullable', 'string'],
-            'boardingAndSeatingInfo' => ['nullable', 'array'],
-            'reservationInfo' => ['nullable', 'array'],
-            'barcode' => ['nullable', 'array'],
+            'id' => new Assert\Required(new Assert\NotBlank()),
+            'classId' => new Assert\Required(new Assert\NotBlank()),
+            'state' => new Assert\Optional(),
+            'passengerName' => new Assert\Optional(),
+            'boardingAndSeatingInfo' => new Assert\Optional(),
+            'reservationInfo' => new Assert\Optional(),
+            'barcode' => new Assert\Optional(),
         ];
     }
 }

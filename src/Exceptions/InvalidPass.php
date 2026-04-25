@@ -2,6 +2,6 @@
 
 namespace Vos\DoctrineMobilePass\Exceptions;
 
-use Illuminate\Validation\ValidationException;
+use RuntimeException;
 
-class InvalidPass extends ValidationException implements MobilePassException {}
+class InvalidPass extends RuntimeException implements MobilePassException {}

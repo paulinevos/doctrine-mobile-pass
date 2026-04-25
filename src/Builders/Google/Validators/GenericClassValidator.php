@@ -2,23 +2,22 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class GenericClassValidator extends GooglePassClassValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
         return [
-            'id' => ['required', 'string'],
-            'issuerName' => ['nullable', 'string'],
-            'cardTitle' => ['nullable', 'array'],
-            'cardTitle.defaultValue.value' => ['nullable', 'string'],
-            'subheader' => ['nullable', 'array'],
-            'subheader.defaultValue.value' => ['nullable', 'string'],
-            'header' => ['nullable', 'array'],
-            'header.defaultValue.value' => ['nullable', 'string'],
-            'hexBackgroundColor' => ['nullable', 'string'],
-            'logo' => ['nullable', 'array'],
-            'heroImage' => ['nullable', 'array'],
-            'reviewStatus' => ['nullable', 'string'],
+            'id' => new Assert\Required(new Assert\NotBlank()),
+            'issuerName' => new Assert\Optional(),
+            'cardTitle' => new Assert\Optional(),
+            'subheader' => new Assert\Optional(),
+            'header' => new Assert\Optional(),
+            'hexBackgroundColor' => new Assert\Optional(),
+            'logo' => new Assert\Optional(),
+            'heroImage' => new Assert\Optional(),
+            'reviewStatus' => new Assert\Optional(),
         ];
     }
 }

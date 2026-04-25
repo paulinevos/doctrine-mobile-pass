@@ -2,12 +2,14 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validation;
 use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 abstract class GooglePassClassValidator
 {
-    /** @return array<string, array<int, string>> */
-    abstract protected function rules(): array;
+    /** @return array<string, Assert\Required|Assert\Optional> */
+    abstract protected function fields(): array;
 
     /**
      * @param  array<string, mixed>  $payload
@@ -15,12 +17,21 @@ abstract class GooglePassClassValidator
      */
     public function validate(array $payload): array
     {
-        $validator = validator($payload, $this->rules());
+        $fields = $this->fields();
 
-        if ($validator->fails()) {
-            throw new InvalidPass($validator);
+        $violations = Validation::createValidator()->validate(
+            $payload,
+            new Assert\Collection(allowExtraFields: true, fields: $fields),
+        );
+
+        if (count($violations) > 0) {
+            $messages = array_map(
+                fn ($v) => $v->getPropertyPath().': '.$v->getMessage(),
+                iterator_to_array($violations),
+            );
+            throw new InvalidPass(implode("\n", $messages));
         }
 
-        return $validator->validated();
+        return array_intersect_key($payload, $fields);
     }
 }

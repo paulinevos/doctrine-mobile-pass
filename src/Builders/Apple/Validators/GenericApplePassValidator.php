@@ -2,16 +2,23 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class GenericApplePassValidator extends ApplePassValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
-        return array_merge(parent::rules(), [
-            'generic.headerFields' => ['nullable', 'array'],
-            'generic.primaryFields' => ['nullable', 'array'],
-            'generic.secondaryFields' => ['nullable', 'array'],
-            'generic.auxiliaryFields' => ['nullable', 'array'],
-            'generic.backFields' => ['nullable', 'array'],
+        return array_merge(parent::fields(), [
+            'generic' => new Assert\Required(new Assert\Collection(
+                allowExtraFields: true,
+                fields: [
+                    'headerFields' => new Assert\Optional(),
+                    'primaryFields' => new Assert\Optional(),
+                    'secondaryFields' => new Assert\Optional(),
+                    'auxiliaryFields' => new Assert\Optional(),
+                    'backFields' => new Assert\Optional(),
+                ],
+            )),
         ]);
     }
 }

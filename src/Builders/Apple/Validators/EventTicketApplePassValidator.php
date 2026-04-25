@@ -2,16 +2,23 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class EventTicketApplePassValidator extends ApplePassValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
-        return array_merge(parent::rules(), [
-            'eventTicket.headerFields' => ['nullable', 'array'],
-            'eventTicket.primaryFields' => ['nullable', 'array'],
-            'eventTicket.secondaryFields' => ['nullable', 'array'],
-            'eventTicket.auxiliaryFields' => ['nullable', 'array'],
-            'eventTicket.backFields' => ['nullable', 'array'],
+        return array_merge(parent::fields(), [
+            'eventTicket' => new Assert\Required(new Assert\Collection(
+                allowExtraFields: true,
+                fields: [
+                    'headerFields' => new Assert\Optional(),
+                    'primaryFields' => new Assert\Optional(),
+                    'secondaryFields' => new Assert\Optional(),
+                    'auxiliaryFields' => new Assert\Optional(),
+                    'backFields' => new Assert\Optional(),
+                ],
+            )),
         ]);
     }
 }

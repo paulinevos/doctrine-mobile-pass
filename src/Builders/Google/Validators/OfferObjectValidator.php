@@ -2,17 +2,19 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class OfferObjectValidator extends GooglePassObjectValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
         return [
-            'id' => ['required', 'string'],
-            'classId' => ['required', 'string'],
-            'state' => ['nullable', 'string'],
-            'title' => ['nullable', 'string'],
-            'redemptionCode' => ['nullable', 'string'],
-            'barcode' => ['nullable', 'array'],
+            'id' => new Assert\Required(new Assert\NotBlank()),
+            'classId' => new Assert\Required(new Assert\NotBlank()),
+            'state' => new Assert\Optional(),
+            'title' => new Assert\Optional(),
+            'redemptionCode' => new Assert\Optional(),
+            'barcode' => new Assert\Optional(),
         ];
     }
 }

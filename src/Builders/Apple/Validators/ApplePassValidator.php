@@ -2,52 +2,63 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validation;
 use Vos\DoctrineMobilePass\Exceptions\InvalidPass;
 
 abstract class ApplePassValidator
 {
-    protected function rules(): array
+    /** @return array<string, Assert\Required|Assert\Optional> */
+    protected function fields(): array
     {
         return [
-            'description' => ['required', 'string'],
-            'formatVersion' => ['required', 'integer', 'in:1'],
-            'organizationName' => ['required', 'string'],
-            'passTypeIdentifier' => ['required', 'string'],
-            'serialNumber' => ['required', 'string'],
-            'webServiceURL' => ['nullable', 'string'],
-            'authenticationToken' => ['nullable', 'string', 'min:16'],
-            'teamIdentifier' => ['required', 'string'],
-            'logoText' => ['nullable', 'string'],
-            'barcode' => [],
-            'barcodes' => [],
-            'relevantDate' => [],
-            'locations' => [],
-            'maxDistance' => [],
-            'nfc' => [],
-            'semantics' => [],
-            'primaryFields' => [],
-
-            'foregroundColor' => [],
-            'backgroundColor' => [],
-            'labelColor' => [],
-
-            'iconImagePath' => [],
-            'icon@2xImagePath' => [],
-            'icon@3xImagePath' => [],
-            'logoImagePath' => [],
-            'logo@2xImagePath' => [],
-            'logo@3xImagePath' => [],
+            'description' => new Assert\Required(new Assert\NotBlank()),
+            'formatVersion' => new Assert\Required(new Assert\EqualTo(1)),
+            'organizationName' => new Assert\Required(new Assert\NotBlank()),
+            'passTypeIdentifier' => new Assert\Required(new Assert\NotBlank()),
+            'serialNumber' => new Assert\Required(new Assert\NotBlank()),
+            'teamIdentifier' => new Assert\Required(new Assert\NotBlank()),
+            'webServiceURL' => new Assert\Optional(),
+            'authenticationToken' => new Assert\Optional(new Assert\Length(min: 16)),
+            'logoText' => new Assert\Optional(),
+            'barcode' => new Assert\Optional(),
+            'barcodes' => new Assert\Optional(),
+            'relevantDate' => new Assert\Optional(),
+            'locations' => new Assert\Optional(),
+            'maxDistance' => new Assert\Optional(),
+            'nfc' => new Assert\Optional(),
+            'semantics' => new Assert\Optional(),
+            'primaryFields' => new Assert\Optional(),
+            'foregroundColor' => new Assert\Optional(),
+            'backgroundColor' => new Assert\Optional(),
+            'labelColor' => new Assert\Optional(),
+            'userInfo' => new Assert\Optional(),
+            'iconImagePath' => new Assert\Optional(),
+            'icon@2xImagePath' => new Assert\Optional(),
+            'icon@3xImagePath' => new Assert\Optional(),
+            'logoImagePath' => new Assert\Optional(),
+            'logo@2xImagePath' => new Assert\Optional(),
+            'logo@3xImagePath' => new Assert\Optional(),
         ];
     }
 
     public function validate(array $compiledData): array
     {
-        $validator = validator($compiledData, $this->rules());
+        $fields = $this->fields();
 
-        if ($validator->fails()) {
-            throw new InvalidPass($validator);
+        $violations = Validation::createValidator()->validate(
+            $compiledData,
+            new Assert\Collection(allowExtraFields: true, fields: $fields),
+        );
+
+        if (count($violations) > 0) {
+            $messages = array_map(
+                fn ($v) => $v->getPropertyPath().': '.$v->getMessage(),
+                iterator_to_array($violations),
+            );
+            throw new InvalidPass(implode("\n", $messages));
         }
 
-        return $validator->validated();
+        return array_intersect_key($compiledData, $fields);
     }
 }
