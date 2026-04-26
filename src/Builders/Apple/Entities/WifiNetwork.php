@@ -7,14 +7,17 @@ class WifiNetwork
     public function __construct(
         public string $ssid,
         public string $password,
-    ) {}
+    ) {
+    }
 
     public static function make(string $ssid, string $password): self
     {
         return new self($ssid, $password);
     }
 
-    /** @param  array<string, string>  $values */
+    /**
+     * @param array<string, string> $values 
+     */
     public static function fromArray(array $values): self
     {
         return new self($values['ssid'], $values['password']);

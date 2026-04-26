@@ -20,13 +20,15 @@ class EventTicketPassBuilder extends ApplePassBuilder
         return array_merge(
             parent::compileData(),
             [
-                'eventTicket' => array_filter([
+                'eventTicket' => array_filter(
+                    [
                     'primaryFields' => $this->primaryFields?->values()->toArray(),
                     'secondaryFields' => $this->secondaryFields?->values()->toArray(),
                     'headerFields' => $this->headerFields?->values()->toArray(),
                     'auxiliaryFields' => $this->auxiliaryFields?->values()->toArray(),
                     'backFields' => $this->backFields?->values()->toArray(),
-                ]),
+                    ]
+                ),
             ],
         );
     }

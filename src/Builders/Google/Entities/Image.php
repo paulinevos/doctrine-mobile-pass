@@ -9,7 +9,8 @@ class Image
     protected function __construct(
         public readonly ?string $url = null,
         public readonly ?string $localPath = null,
-    ) {}
+    ) {
+    }
 
     public static function fromUrl(string $url): self
     {
@@ -34,7 +35,9 @@ class Image
         );
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     public function toArray(): array
     {
         return ['sourceUri' => ['uri' => $this->publicUrl()]];

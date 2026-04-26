@@ -2,21 +2,23 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class LoyaltyClassValidator extends GooglePassClassValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
         return [
-            'id' => ['required', 'string'],
-            'issuerName' => ['nullable', 'string'],
-            'programName' => ['required', 'string'],
-            'programLogo' => ['nullable', 'array'],
-            'rewardsTier' => ['nullable', 'string'],
-            'rewardsTierLabel' => ['nullable', 'string'],
-            'accountNameLabel' => ['nullable', 'string'],
-            'accountIdLabel' => ['nullable', 'string'],
-            'hexBackgroundColor' => ['nullable', 'string'],
-            'reviewStatus' => ['nullable', 'string'],
+            'id' => new Assert\Required(new Assert\NotBlank()),
+            'issuerName' => new Assert\Optional(),
+            'programName' => new Assert\Required(new Assert\NotBlank()),
+            'programLogo' => new Assert\Optional(),
+            'rewardsTier' => new Assert\Optional(),
+            'rewardsTierLabel' => new Assert\Optional(),
+            'accountNameLabel' => new Assert\Optional(),
+            'accountIdLabel' => new Assert\Optional(),
+            'hexBackgroundColor' => new Assert\Optional(),
+            'reviewStatus' => new Assert\Optional(),
         ];
     }
 }

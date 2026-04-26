@@ -9,5 +9,7 @@ class MobilePassAdded
 {
     use Dispatchable;
 
-    public function __construct(public MobilePass $mobilePass) {}
+    public function __construct(public MobilePass $mobilePass)
+    {
+    }
 }

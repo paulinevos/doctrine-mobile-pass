@@ -12,10 +12,12 @@ use Vos\DoctrineMobilePass\Exceptions\GoogleWalletRequestFailed;
 
 class GoogleWalletClient
 {
-    public function __construct(protected GoogleJwtSigner $signer) {}
+    public function __construct(protected GoogleJwtSigner $signer)
+    {
+    }
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     public function insertClass(string $resource, string $id, array $payload): array
@@ -24,7 +26,7 @@ class GoogleWalletClient
     }
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     public function insertObject(string $resource, string $id, array $payload): array
@@ -33,7 +35,7 @@ class GoogleWalletClient
     }
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     public function patchClass(string $resource, string $id, array $payload): array
@@ -42,7 +44,7 @@ class GoogleWalletClient
     }
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     public function patchObject(string $resource, string $id, array $payload): array
@@ -50,13 +52,17 @@ class GoogleWalletClient
         return $this->patch($resource, $id, $payload);
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     public function getClass(string $resource, string $id): array
     {
         return $this->get("/{$resource}/{$id}");
     }
 
-    /** @return array<int, array<string, mixed>> */
+    /**
+     * @return array<int, array<string, mixed>> 
+     */
     public function listClasses(string $resource): array
     {
         $issuerId = GoogleCredentials::issuerId();
@@ -67,7 +73,7 @@ class GoogleWalletClient
     }
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     protected function insertOrPatch(string $resource, string $id, array $payload): array
@@ -83,7 +89,7 @@ class GoogleWalletClient
     }
 
     /**
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed> $payload
      * @return array<string, mixed>
      */
     protected function patch(string $resource, string $id, array $payload): array
@@ -96,7 +102,9 @@ class GoogleWalletClient
         );
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function get(string $endpoint): array
     {
         return $this->parse($this->request()->get($this->url($endpoint)), $endpoint);
@@ -127,7 +135,9 @@ class GoogleWalletClient
         return rtrim((string) config('mobile-pass.google.api_base_url'), '/').$endpoint;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function parse(Response $response, string $endpoint): array
     {
         if ($response->failed()) {

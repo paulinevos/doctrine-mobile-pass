@@ -77,10 +77,13 @@ class LoyaltyPassClass extends GooglePassClass
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'issuerName' => $this->issuerName,
             'programName' => $this->programName,
             'programLogo' => $this->programLogo?->toArray(),
@@ -90,10 +93,13 @@ class LoyaltyPassClass extends GooglePassClass
             'accountIdLabel' => $this->accountIdLabel,
             'hexBackgroundColor' => $this->backgroundColor,
             'reviewStatus' => $this->reviewStatus,
-        ]);
+            ]
+        );
     }
 
-    /** @param array<string, mixed> $payload */
+    /**
+     * @param array<string, mixed> $payload 
+     */
     protected function applyHydratedPayload(array $payload): void
     {
         $this->hydrateCommonFields($payload);

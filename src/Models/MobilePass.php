@@ -50,20 +50,26 @@ class MobilePass extends Model implements Attachable, Responsable
     {
         parent::boot();
 
-        static::updated(function (MobilePass $mobilePass) {
-            [$configKey, $default] = match ($mobilePass->platform) {
-                Platform::Apple => ['notify_apple_of_pass_update', NotifyAppleOfPassUpdateAction::class],
-                Platform::Google => ['notify_google_of_pass_update', NotifyGoogleOfPassUpdateAction::class],
-            };
+        static::updated(
+            function (MobilePass $mobilePass) {
+                [$configKey, $default] = match ($mobilePass->platform) {
+                    Platform::Apple => ['notify_apple_of_pass_update', NotifyAppleOfPassUpdateAction::class],
+                    Platform::Google => ['notify_google_of_pass_update', NotifyGoogleOfPassUpdateAction::class],
+                };
 
-            /** @var class-string $action */
-            $action = Config::getActionClass($configKey, $default);
+                /**
+            * @var class-string $action 
+            */
+                $action = Config::getActionClass($configKey, $default);
 
-            PushPassUpdateJob::dispatch($mobilePass, $action);
-        });
+                PushPassUpdateJob::dispatch($mobilePass, $action);
+            }
+        );
     }
 
-    /** @return HasMany<AppleMobilePassRegistration, $this> */
+    /**
+     * @return HasMany<AppleMobilePassRegistration, $this> 
+     */
     public function registrations(): HasMany
     {
         $modelClass = Config::appleMobilePassRegistrationModel();
@@ -79,7 +85,9 @@ class MobilePass extends Model implements Attachable, Responsable
         return $this->hasManyThrough($deviceModelClass, $modelClass, 'pass_serial', 'id', 'id', 'device_id');
     }
 
-    /** @return HasMany<GoogleMobilePassEvent, $this> */
+    /**
+     * @return HasMany<GoogleMobilePassEvent, $this> 
+     */
     public function googleEvents(): HasMany
     {
         $modelClass = Config::googleMobilePassEventModel();
@@ -138,10 +146,12 @@ class MobilePass extends Model implements Attachable, Responsable
         $content['voided'] = true;
         $content['expirationDate'] = now()->toIso8601String();
 
-        $this->update([
+        $this->update(
+            [
             'content' => $content,
             'expired_at' => now(),
-        ]);
+            ]
+        );
     }
 
     protected function expireAsGoogle(): void
@@ -149,10 +159,12 @@ class MobilePass extends Model implements Attachable, Responsable
         $content = $this->content;
         $content['googleObjectPayload']['state'] = 'EXPIRED';
 
-        $this->update([
+        $this->update(
+            [
             'content' => $content,
             'expired_at' => now(),
-        ]);
+            ]
+        );
     }
 
     public function addToWalletUrl(): string
@@ -172,9 +184,11 @@ class MobilePass extends Model implements Attachable, Responsable
     {
         $objectResource = str_replace('Class', 'Object', $this->content['googleClassType']);
 
-        $jwt = app(GoogleJwtSigner::class)->signSaveUrlJwt([
+        $jwt = app(GoogleJwtSigner::class)->signSaveUrlJwt(
+            [
             "{$objectResource}s" => [['id' => $this->content['googleObjectId']]],
-        ]);
+            ]
+        );
 
         return "https://pay.google.com/gp/v/save/{$jwt}";
     }
@@ -185,7 +199,9 @@ class MobilePass extends Model implements Attachable, Responsable
             throw PlatformDoesntSupport::cannotUpdateFields($this->platform);
         }
 
-        /** @var class-string<ApplePassBuilder> $builderClass */
+        /**
+ * @var class-string<ApplePassBuilder> $builderClass 
+*/
         $builderClass = Config::getPassBuilderClass($this->builder_name, $this->platform);
 
         return $builderClass::hydrate($this);

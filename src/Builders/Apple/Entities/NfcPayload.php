@@ -8,7 +8,8 @@ class NfcPayload
         public string $message,
         public string $encryptionPublicKey,
         public bool $requiresAuthentication = false,
-    ) {}
+    ) {
+    }
 
     public static function make(
         string $message,
@@ -18,7 +19,9 @@ class NfcPayload
         return new self($message, $encryptionPublicKey, $requiresAuthentication);
     }
 
-    /** @param array<string, mixed> $values */
+    /**
+     * @param array<string, mixed> $values 
+     */
     public static function fromArray(array $values): self
     {
         return new self(
@@ -30,10 +33,12 @@ class NfcPayload
 
     public function toArray(): array
     {
-        return array_filter([
+        return array_filter(
+            [
             'message' => $this->message,
             'encryptionPublicKey' => $this->encryptionPublicKey,
             'requiresAuthentication' => $this->requiresAuthentication ?: null,
-        ], fn ($value) => $value !== null);
+            ], fn ($value) => $value !== null
+        );
     }
 }

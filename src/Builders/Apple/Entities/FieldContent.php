@@ -41,7 +41,8 @@ class FieldContent
 
     public function __construct(
         public string $key
-    ) {}
+    ) {
+    }
 
     public static function fromArray(array $fields): self
     {
@@ -150,7 +151,8 @@ class FieldContent
 
     public function toArray(): array
     {
-        return array_filter([
+        return array_filter(
+            [
             'key' => $this->key,
             'label' => $this->label,
             'value' => $this->value,
@@ -164,6 +166,7 @@ class FieldContent
             'numberStyle' => $this->numberStyle?->value,
             'textAlignment' => $this->textAlignment?->value,
             'timeStyle' => $this->timeStyle?->value,
-        ]);
+            ]
+        );
     }
 }

@@ -2,16 +2,27 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Apple\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class CouponApplePassValidator extends ApplePassValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
-        return array_merge(parent::rules(), [
-            'coupon.headerFields' => ['nullable', 'array'],
-            'coupon.primaryFields' => ['nullable', 'array'],
-            'coupon.secondaryFields' => ['nullable', 'array'],
-            'coupon.auxiliaryFields' => ['nullable', 'array'],
-            'coupon.backFields' => ['nullable', 'array'],
-        ]);
+        return array_merge(
+            parent::fields(), [
+            'coupon' => new Assert\Required(
+                new Assert\Collection(
+                    allowExtraFields: true,
+                    fields: [
+                    'headerFields' => new Assert\Optional(),
+                    'primaryFields' => new Assert\Optional(),
+                    'secondaryFields' => new Assert\Optional(),
+                    'auxiliaryFields' => new Assert\Optional(),
+                    'backFields' => new Assert\Optional(),
+                    ],
+                )
+            ),
+            ]
+        );
     }
 }

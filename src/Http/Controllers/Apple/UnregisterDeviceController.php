@@ -16,7 +16,9 @@ class UnregisterDeviceController extends Controller
 {
     public function __invoke(Request $request): Response
     {
-        /** @var class-string<UnregisterDeviceAction> $action */
+        /**
+ * @var class-string<UnregisterDeviceAction> $action 
+*/
         $action = Config::getActionClass('unregister_device', UnregisterDeviceAction::class);
 
         (new $action)->execute($request->deviceId, $request->passSerial);

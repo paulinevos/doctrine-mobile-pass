@@ -2,26 +2,23 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class BoardingClassValidator extends GooglePassClassValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
         return [
-            'id' => ['required', 'string'],
-            'issuerName' => ['nullable', 'string'],
-            'localScheduledDepartureDateTime' => ['nullable', 'string'],
-            'flightHeader' => ['nullable', 'array'],
-            'flightHeader.carrier' => ['nullable', 'array'],
-            'flightHeader.carrier.airlineCode' => ['nullable', 'string'],
-            'flightHeader.flightNumber' => ['nullable', 'string'],
-            'origin' => ['nullable', 'array'],
-            'origin.airportIataCode' => ['nullable', 'string'],
-            'destination' => ['nullable', 'array'],
-            'destination.airportIataCode' => ['nullable', 'string'],
-            'logo' => ['nullable', 'array'],
-            'heroImage' => ['nullable', 'array'],
-            'hexBackgroundColor' => ['nullable', 'string'],
-            'reviewStatus' => ['nullable', 'string'],
+            'id' => new Assert\Required(new Assert\NotBlank()),
+            'issuerName' => new Assert\Optional(),
+            'localScheduledDepartureDateTime' => new Assert\Optional(),
+            'flightHeader' => new Assert\Optional(),
+            'origin' => new Assert\Optional(),
+            'destination' => new Assert\Optional(),
+            'logo' => new Assert\Optional(),
+            'heroImage' => new Assert\Optional(),
+            'hexBackgroundColor' => new Assert\Optional(),
+            'reviewStatus' => new Assert\Optional(),
         ];
     }
 }

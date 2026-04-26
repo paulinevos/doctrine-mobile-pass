@@ -62,20 +62,26 @@ class GenericPassBuilder extends GooglePassBuilder
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
         $notifications = $this->compileNotifications();
 
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'header' => $this->header?->toArray(),
             'cardTitle' => $this->cardTitle?->toArray(),
             'subheader' => $this->subheader?->toArray(),
             'notifications' => $notifications,
-        ]);
+            ]
+        );
     }
 
-    /** @return array<string, mixed>|null */
+    /**
+     * @return array<string, mixed>|null 
+     */
     protected function compileNotifications(): ?array
     {
         if ($this->expiryNotificationEnabled === null) {

@@ -36,7 +36,9 @@ abstract class GooglePassBuilder
 
     abstract protected static function objectResource(): string;
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     abstract protected function compileData(): array;
 
     public static function make(): static
@@ -124,7 +126,8 @@ abstract class GooglePassBuilder
 
         $mobilePassClass = Config::mobilePassModel();
 
-        return $mobilePassClass::query()->create([
+        return $mobilePassClass::query()->create(
+            [
             'type' => $this->type->value,
             'platform' => Platform::Google,
             'builder_name' => static::name(),
@@ -135,32 +138,43 @@ abstract class GooglePassBuilder
                 'googleObjectPayload' => $payload,
             ],
             'images' => [],
-        ]);
+            ]
+        );
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileGoogleObjectPayload(): array
     {
-        return $this->filterEmpty(array_merge([
-            'id' => $this->objectId(),
-            'classId' => $this->classId(),
-            'state' => $this->state,
-            'barcode' => $this->compileBarcode(),
-        ], $this->compileData()));
+        return $this->filterEmpty(
+            array_merge(
+                [
+                'id' => $this->objectId(),
+                'classId' => $this->classId(),
+                'state' => $this->state,
+                'barcode' => $this->compileBarcode(),
+                ], $this->compileData()
+            )
+        );
     }
 
-    /** @return array<string, mixed>|null */
+    /**
+     * @return array<string, mixed>|null 
+     */
     protected function compileBarcode(): ?array
     {
         if ($this->barcode === null) {
             return null;
         }
 
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'type' => $this->translateBarcodeType($this->barcode->format),
             'value' => $this->barcode->message,
             'alternateText' => $this->barcode->altText,
-        ]);
+            ]
+        );
     }
 
     protected function translateBarcodeType(BarcodeType $type): string
@@ -174,7 +188,7 @@ abstract class GooglePassBuilder
     }
 
     /**
-     * @param  array<string, mixed>  $values
+     * @param  array<string, mixed> $values
      * @return array<string, mixed>
      */
     protected function filterEmpty(array $values): array

@@ -3,22 +3,26 @@
 use Illuminate\Support\Facades\Event;
 use Vos\DoctrineMobilePass\Events\AppleMobilePassLogsReceived;
 
-it('will fire an event when logs are received', function () {
-    Event::fake();
+it(
+    'will fire an event when logs are received', function () {
+        Event::fake();
 
-    $logEntries = [
+        $logEntries = [
         'entry1',
         'entry2',
-    ];
+        ];
 
-    $this
-        ->withoutMiddleware()
-        ->postJson(route('mobile-pass.logs'), ['logs' => $logEntries])
-        ->assertSuccessful();
+        $this
+            ->withoutMiddleware()
+            ->postJson(route('mobile-pass.logs'), ['logs' => $logEntries])
+            ->assertSuccessful();
 
-    Event::assertDispatched(function (AppleMobilePassLogsReceived $event) use ($logEntries) {
-        expect($event->logEntries)->toBe($logEntries);
+        Event::assertDispatched(
+            function (AppleMobilePassLogsReceived $event) use ($logEntries) {
+                expect($event->logEntries)->toBe($logEntries);
 
-        return true;
-    });
-});
+                return true;
+            }
+        );
+    }
+);

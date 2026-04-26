@@ -9,7 +9,8 @@ class Location
         public float $longitude,
         public ?float $altitude = null,
         public ?string $relevantText = null,
-    ) {}
+    ) {
+    }
 
     public static function make(
         float $latitude,
@@ -20,7 +21,9 @@ class Location
         return new self($latitude, $longitude, $altitude, $relevantText);
     }
 
-    /** @param  array<string, mixed>  $values */
+    /**
+     * @param array<string, mixed> $values 
+     */
     public static function fromArray(array $values): self
     {
         return new self(
@@ -33,11 +36,13 @@ class Location
 
     public function toArray(): array
     {
-        return array_filter([
+        return array_filter(
+            [
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'altitude' => $this->altitude,
             'relevantText' => $this->relevantText,
-        ], fn ($value) => $value !== null);
+            ], fn ($value) => $value !== null
+        );
     }
 }

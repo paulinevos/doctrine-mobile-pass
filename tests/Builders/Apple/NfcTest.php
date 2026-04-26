@@ -3,46 +3,54 @@
 use Vos\DoctrineMobilePass\Builders\Apple\EventTicketPassBuilder;
 use Vos\DoctrineMobilePass\Models\MobilePass;
 
-it('serialises an NFC payload onto the pass', function () {
-    $data = EventTicketPassBuilder::make()
-        ->setOrganizationName('Fab Four Promotions')
-        ->setSerialNumber('BTL-SHEA-0042')
-        ->setDescription('The Beatles at Shea Stadium')
-        ->setNfc(
-            message: 'TICKET-12345',
-            encryptionPublicKey: 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE',
-        )
-        ->setIconImage(getTestSupportPath('images/spatie-thumbnail.png'))
-        ->data();
+it(
+    'serialises an NFC payload onto the pass', function () {
+        $data = EventTicketPassBuilder::make()
+            ->setOrganizationName('Fab Four Promotions')
+            ->setSerialNumber('BTL-SHEA-0042')
+            ->setDescription('The Beatles at Shea Stadium')
+            ->setNfc(
+                message: 'TICKET-12345',
+                encryptionPublicKey: 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE',
+            )
+            ->setIconImage(getTestSupportPath('images/spatie-thumbnail.png'))
+            ->data();
 
-    expect($data)->toHaveKey('nfc');
-    expect($data['nfc'])->toMatchArray([
-        'message' => 'TICKET-12345',
-        'encryptionPublicKey' => 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE',
-    ]);
-    expect($data['nfc'])->not->toHaveKey('requiresAuthentication');
-});
+        expect($data)->toHaveKey('nfc');
+        expect($data['nfc'])->toMatchArray(
+            [
+            'message' => 'TICKET-12345',
+            'encryptionPublicKey' => 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE',
+            ]
+        );
+        expect($data['nfc'])->not->toHaveKey('requiresAuthentication');
+    }
+);
 
-it('includes requiresAuthentication when set', function () {
-    $data = EventTicketPassBuilder::make()
-        ->setOrganizationName('Fab Four Promotions')
-        ->setSerialNumber('BTL-SHEA-0042')
-        ->setDescription('The Beatles at Shea Stadium')
-        ->setNfc(
-            message: 'TICKET-12345',
-            encryptionPublicKey: 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE',
-            requiresAuthentication: true,
-        )
-        ->setIconImage(getTestSupportPath('images/spatie-thumbnail.png'))
-        ->data();
+it(
+    'includes requiresAuthentication when set', function () {
+        $data = EventTicketPassBuilder::make()
+            ->setOrganizationName('Fab Four Promotions')
+            ->setSerialNumber('BTL-SHEA-0042')
+            ->setDescription('The Beatles at Shea Stadium')
+            ->setNfc(
+                message: 'TICKET-12345',
+                encryptionPublicKey: 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE',
+                requiresAuthentication: true,
+            )
+            ->setIconImage(getTestSupportPath('images/spatie-thumbnail.png'))
+            ->data();
 
-    expect($data['nfc']['requiresAuthentication'])->toBeTrue();
-});
+        expect($data['nfc']['requiresAuthentication'])->toBeTrue();
+    }
+);
 
-it('round-trips NFC data through the uncompile path', function () {
-    $model = MobilePass::factory()->make([
-        'builder_name' => EventTicketPassBuilder::name(),
-        'content' => [
+it(
+    'round-trips NFC data through the uncompile path', function () {
+        $model = MobilePass::factory()->make(
+            [
+            'builder_name' => EventTicketPassBuilder::name(),
+            'content' => [
             'organizationName' => 'Fab Four Promotions',
             'serialNumber' => 'BTL-SHEA-0042',
             'description' => 'The Beatles at Shea Stadium',
@@ -51,12 +59,14 @@ it('round-trips NFC data through the uncompile path', function () {
                 'encryptionPublicKey' => 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE',
                 'requiresAuthentication' => true,
             ],
-        ],
-    ]);
+            ],
+            ]
+        );
 
-    $data = EventTicketPassBuilder::hydrate($model)->data();
+        $data = EventTicketPassBuilder::hydrate($model)->data();
 
-    expect($data['nfc']['message'])->toBe('TICKET-12345');
-    expect($data['nfc']['encryptionPublicKey'])->toBe('MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE');
-    expect($data['nfc']['requiresAuthentication'])->toBeTrue();
-});
+        expect($data['nfc']['message'])->toBe('TICKET-12345');
+        expect($data['nfc']['encryptionPublicKey'])->toBe('MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE');
+        expect($data['nfc']['requiresAuthentication'])->toBeTrue();
+    }
+);

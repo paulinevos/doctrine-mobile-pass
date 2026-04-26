@@ -23,17 +23,19 @@ function tempPath(string $path = ''): string
     return test()->temporaryDirectory->path($path);
 }
 
-expect()->extend('toMatchMobilePassSnapshot', function () {
-    storePassInTemporaryDirectory($this->value);
+expect()->extend(
+    'toMatchMobilePassSnapshot', function () {
+        storePassInTemporaryDirectory($this->value);
 
-    $passkeyReader = PkPassReader::fromString($this->value);
+        $passkeyReader = PkPassReader::fromString($this->value);
 
-    $this->value = $passkeyReader->toArray();
+        $this->value = $passkeyReader->toArray();
 
-    $this->value = removeRandomMobilePassValues($this->value);
+        $this->value = removeRandomMobilePassValues($this->value);
 
-    return $this->toMatchSnapshot();
-});
+        return $this->toMatchSnapshot();
+    }
+);
 
 function removeRandomMobilePassValues(array $values): array
 {

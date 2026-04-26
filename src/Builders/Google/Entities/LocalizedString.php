@@ -4,13 +4,16 @@ namespace Vos\DoctrineMobilePass\Builders\Google\Entities;
 
 class LocalizedString
 {
-    /** @var array<int, array{language: string, value: string}> */
+    /**
+     * @var array<int, array{language: string, value: string}> 
+     */
     protected array $translations = [];
 
     public function __construct(
         public string $defaultValue,
         public string $defaultLanguage = 'en-US',
-    ) {}
+    ) {
+    }
 
     public static function of(string $defaultValue, string $defaultLanguage = 'en-US'): self
     {
@@ -24,7 +27,9 @@ class LocalizedString
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     public function toArray(): array
     {
         $payload = [

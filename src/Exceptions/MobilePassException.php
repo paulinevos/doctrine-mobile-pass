@@ -2,4 +2,6 @@
 
 namespace Vos\DoctrineMobilePass\Exceptions;
 
-interface MobilePassException {}
+interface MobilePassException
+{
+}

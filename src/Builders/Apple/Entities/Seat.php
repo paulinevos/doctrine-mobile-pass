@@ -11,7 +11,8 @@ class Seat
         public ?string $row,
         public ?string $section,
         public ?string $type,
-    ) {}
+    ) {
+    }
 
     public static function make(
         ?string $description = null,
@@ -31,7 +32,9 @@ class Seat
         );
     }
 
-    /** @param  array<string, mixed>  $values */
+    /**
+     * @param array<string, mixed> $values 
+     */
     public static function fromArray(array $values): self
     {
         return new self(
@@ -46,13 +49,15 @@ class Seat
 
     public function toArray(): array
     {
-        return array_filter([
+        return array_filter(
+            [
             'description' => $this->description,
             'identifier' => $this->identifier,
             'number' => $this->number,
             'row' => $this->row,
             'section' => $this->section,
             'type' => $this->type,
-        ]);
+            ]
+        );
     }
 }

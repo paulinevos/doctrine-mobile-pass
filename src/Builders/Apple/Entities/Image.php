@@ -30,7 +30,9 @@ class Image
         return new self($x1Path, $x2Path, $x3Path);
     }
 
-    /** @param  array<string, string|null>  $image */
+    /**
+     * @param array<string, string|null> $image 
+     */
     public static function fromArray(array $image): self
     {
         return new self(

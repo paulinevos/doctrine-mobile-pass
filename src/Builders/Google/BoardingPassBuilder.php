@@ -52,21 +52,29 @@ class BoardingPassBuilder extends GooglePassBuilder
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        $boardingAndSeatingInfo = $this->filterEmpty([
+        $boardingAndSeatingInfo = $this->filterEmpty(
+            [
             'seatNumber' => $this->seatNumber,
-        ]);
+            ]
+        );
 
-        $reservationInfo = $this->filterEmpty([
+        $reservationInfo = $this->filterEmpty(
+            [
             'confirmationCode' => $this->confirmationCode,
-        ]);
+            ]
+        );
 
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'passengerName' => $this->passengerName,
             'boardingAndSeatingInfo' => $boardingAndSeatingInfo,
             'reservationInfo' => $reservationInfo,
-        ]);
+            ]
+        );
     }
 }

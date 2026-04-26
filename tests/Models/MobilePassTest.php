@@ -3,60 +3,76 @@
 use Vos\DoctrineMobilePass\Models\MobilePass;
 use Vos\DoctrineMobilePass\Tests\TestSupport\Mailables\TestMail;
 
-it('can return a downloadable pass', function (?string $customName) {
-    Route::get('test', function () use ($customName) {
-        $mobilePass = MobilePass::factory()->create();
+it(
+    'can return a downloadable pass', function (?string $customName) {
+        Route::get(
+            'test', function () use ($customName) {
+                $mobilePass = MobilePass::factory()->create();
 
-        return $customName
-            ? $mobilePass->download($customName)
-            : $mobilePass->download();
-    });
+                return $customName
+                ? $mobilePass->download($customName)
+                : $mobilePass->download();
+            }
+        );
 
-    $expectedName = $customName ?? 'pass';
+        $expectedName = $customName ?? 'pass';
 
-    $this
-        ->get('test')
-        ->assertSuccessful()
-        ->assertHeader('Content-Type', 'application/vnd.apple.pkpass')
-        ->assertHeader('Content-Disposition', "inline; filename=\"{$expectedName}.pkpass\"");
-})->with([
-    null,
-    'customName',
-]);
+        $this
+            ->get('test')
+            ->assertSuccessful()
+            ->assertHeader('Content-Type', 'application/vnd.apple.pkpass')
+            ->assertHeader('Content-Disposition', "inline; filename=\"{$expectedName}.pkpass\"");
+    }
+)->with(
+    [
+        null,
+        'customName',
+        ]
+);
 
-it('implements responsible and uses download_name as the download name', function (?string $customName) {
-    Route::get('test', function () use ($customName) {
+it(
+    'implements responsible and uses download_name as the download name', function (?string $customName) {
+        Route::get(
+            'test', function () use ($customName) {
+                $mobilePass = MobilePass::factory(['download_name' => $customName])->create();
+
+                return $mobilePass;
+            }
+        );
+
+        $expectedName = $customName ?? 'pass';
+
+        $this
+            ->get('test')
+            ->assertSuccessful()
+            ->assertHeader('Content-Type', 'application/vnd.apple.pkpass')
+            ->assertHeader('Content-Disposition', "inline; filename=\"{$expectedName}.pkpass\"");
+    }
+)->with(
+    [
+        null,
+        'customName',
+        ]
+);
+
+it(
+    'can be used as an attachment', function (?string $customName) {
         $mobilePass = MobilePass::factory(['download_name' => $customName])->create();
 
-        return $mobilePass;
-    });
+        $mailable = new TestMail($mobilePass);
 
-    $expectedName = $customName ?? 'pass';
+        $expectedName = $customName ?? 'pass';
 
-    $this
-        ->get('test')
-        ->assertSuccessful()
-        ->assertHeader('Content-Type', 'application/vnd.apple.pkpass')
-        ->assertHeader('Content-Disposition', "inline; filename=\"{$expectedName}.pkpass\"");
-})->with([
-    null,
-    'customName',
-]);
-
-it('can be used as an attachment', function (?string $customName) {
-    $mobilePass = MobilePass::factory(['download_name' => $customName])->create();
-
-    $mailable = new TestMail($mobilePass);
-
-    $expectedName = $customName ?? 'pass';
-
-    $mailable->assertHasAttachedFileName(
-        name: "{$expectedName}.pkpass",
-        options: [
+        $mailable->assertHasAttachedFileName(
+            name: "{$expectedName}.pkpass",
+            options: [
             'mime' => 'application/vnd.apple.pkpass',
+            ]
+        );
+    }
+)->with(
+    [
+        null,
+        'customName',
         ]
-    );
-})->with([
-    null,
-    'customName',
-]);
+);

@@ -2,23 +2,36 @@
 
 namespace Vos\DoctrineMobilePass\Builders\Google\Validators;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class EventTicketClassValidator extends GooglePassClassValidator
 {
-    protected function rules(): array
+    protected function fields(): array
     {
         return [
-            'id' => ['required', 'string'],
-            'issuerName' => ['nullable', 'string'],
-            'eventName' => ['required', 'array'],
-            'eventName.defaultValue.value' => ['required', 'string'],
-            'venue' => ['nullable', 'array'],
-            'venue.name' => ['nullable', 'array'],
-            'venue.address' => ['nullable', 'array'],
-            'dateTime' => ['nullable', 'array'],
-            'logo' => ['nullable', 'array'],
-            'heroImage' => ['nullable', 'array'],
-            'hexBackgroundColor' => ['nullable', 'string'],
-            'reviewStatus' => ['nullable', 'string'],
+            'id' => new Assert\Required(new Assert\NotBlank()),
+            'issuerName' => new Assert\Optional(),
+            'eventName' => new Assert\Required(
+                new Assert\Collection(
+                    allowExtraFields: true,
+                    fields: [
+                    'defaultValue' => new Assert\Required(
+                        new Assert\Collection(
+                            allowExtraFields: true,
+                            fields: [
+                            'value' => new Assert\Required(new Assert\NotBlank()),
+                            ],
+                        )
+                    ),
+                    ],
+                )
+            ),
+            'venue' => new Assert\Optional(),
+            'dateTime' => new Assert\Optional(),
+            'logo' => new Assert\Optional(),
+            'heroImage' => new Assert\Optional(),
+            'hexBackgroundColor' => new Assert\Optional(),
+            'reviewStatus' => new Assert\Optional(),
         ];
     }
 }

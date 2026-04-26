@@ -14,16 +14,20 @@ class UnregisterDeviceAction
 
         $mobilePassRegistrationModel::query()
             ->with('pass')
-            ->where([
+            ->where(
+                [
                 'device_id' => $deviceId,
                 'pass_serial' => $passSerial,
-            ])
-            ->each(function (AppleMobilePassRegistration $registration) {
-                $pass = $registration->pass;
+                ]
+            )
+            ->each(
+                function (AppleMobilePassRegistration $registration) {
+                    $pass = $registration->pass;
 
-                $registration->delete();
+                    $registration->delete();
 
-                event(new MobilePassRemoved($pass));
-            });
+                    event(new MobilePassRemoved($pass));
+                }
+            );
     }
 }

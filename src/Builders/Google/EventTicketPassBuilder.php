@@ -61,18 +61,24 @@ class EventTicketPassBuilder extends GooglePassBuilder
         return $this;
     }
 
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     protected function compileData(): array
     {
-        $seatInfo = $this->filterEmpty([
+        $seatInfo = $this->filterEmpty(
+            [
             'section' => $this->section,
             'row' => $this->row,
             'seat' => $this->seat,
-        ]);
+            ]
+        );
 
-        return $this->filterEmpty([
+        return $this->filterEmpty(
+            [
             'ticketHolderName' => $this->attendeeName,
             'seatInfo' => $seatInfo,
-        ]);
+            ]
+        );
     }
 }

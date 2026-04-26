@@ -6,7 +6,9 @@ use Vos\DoctrineMobilePass\Exceptions\InvalidConfig;
 
 class GoogleCredentials
 {
-    /** @return array<string, mixed> */
+    /**
+     * @return array<string, mixed> 
+     */
     public static function key(): array
     {
         return json_decode(static::rawKeyContents(), true, flags: JSON_THROW_ON_ERROR);

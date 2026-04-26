@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
 use Spatie\TestTime\TestTime;
-use Vos\DoctrineMobilePass\MobilePassServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -30,13 +29,6 @@ class TestCase extends Orchestra
         );
     }
 
-    protected function getPackageProviders($app)
-    {
-        return [
-            MobilePassServiceProvider::class,
-        ];
-    }
-
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('mobile-pass.apple.certificate', null);
@@ -51,9 +43,11 @@ class TestCase extends Orchestra
         $migration = include __DIR__.'/../database/migrations/create_mobile_pass_tables.php.stub';
         $migration->up();
 
-        Schema::create('test_models', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        Schema::create(
+            'test_models', function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
+            }
+        );
     }
 }
